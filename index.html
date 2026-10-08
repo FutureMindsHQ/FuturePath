@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FuturePath</title>
+<meta name="theme-color" content="#0a0d0b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="FuturePath">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%230a0d0b%22/%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22170%22%20fill%3D%22none%22%20stroke%3D%22%2322c55e%22%20stroke-width%3D%2222%22/%3E%3Cpath%20d%3D%22M256%20130l130%2060-130%2060-130-60z%22%20fill%3D%22%2322c55e%22/%3E%3Cpath%20d%3D%22M170%20240v70c0%2030%2040%2052%2086%2052s86-22%2086-52v-70l-86%2040z%22%20fill%3D%22%2316a34a%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAGo0lEQVR4nO2dPZLcOAxG5S1Hu97ct3Hq3LfYA/kWzp36Nj7AHsABqliq0UAtUfj5AH4vmqRbBPgEUBKn9eHvf//ZCHmPv7IHQHChHESFchAVykFUKAdRoRxEhXIQFcpBVCgHUaEcRIVyEBXKQVQoB1GhHESFchAVykFUKAdRoRxEhXIQlY/ZA8jh889vdz/y++sPj5Eg82GFDcYTKlyhvS5t5XASQqOlKN3kCHbiSCdLmsiR7sSRBpbUlgPQiSN1LakqRwkt9lRUpJ4c5bTYU0uRSnLYanFrnhIPnUgNOZ7Pjfl8AA7JnAJyTE9DWPbxRzgHtBxzSU/MeLkBn4Mrx91EQ6W49OAHiHL0yOxWPxA4OW4lFC2b71I3Iiw5rucRKolXqBgaihwVczdBrTAh5LiYMoR8mVAl3vxtglUyZcjFWNIfFCRXjivxd9LiDeDhZ1YO8NQEcCW6xPqRJgfNEJD9yGkrL6NdQYs3AOYkoXIAZgGBl1HH149oOWjGCWh+hMqBb0b61SOUH/n3OQa5Znz++U3yPv7IIv0MGcQtSM8zjrkJA3NUW9TAguRACPUI+M3Z9KRFyJEe5BsK7erLTV3ymiM43Q/XE/HLkdz1h7sc6et/wXBe01esA+9h+LYVhIbimkGEEPzGkNZWAtIacIrHVJGs5uJYORIvEVPKfmJQTof2qhxZXTlxQZB7aI+vTWgrTpqDrBP9hhHfXFzaSmQBRBDihMh4zY9V+NcEwbUQZJA4j0tuYV85AtQuocWRgPBtLSxWOYpqIZSrIsaVw0/q0loc8cuGoXwFKkczLYQSVcSycpjr3FKLI+bJsXIOsXIs4sRgxItWSCJugl2PGeRGVha3wg8wyUyOh5O6uBZ7nqfCKpPulePKdmpqceRKWryLR/6aQyKkH29AWH/YVA6TH+VESAcCJqkwOdl828rdIBdXZCJ813Tlt5UjCzYazFPCoHL4bV/ATJktfmE+nxfHtmISc2NFrELzyw9iWznSrNFU0b2GHEIDRapoITxtK/FTVbTRpAz74ex4rTm8E1FIkYChOn1/pbZyBLzRVNFXo7YcwpgDEEuqOzHoIMcgvZC00UJoJYeQokgzLYRHC1KQMv4uYStW8KXxkzlyuVrBSZbrzEFp4TGShm3liHmjwXHCFaCfmrzOp+9fJj5lcqJPf8ncmHOpWjkk1///9+vuB6eryLRYFbUQqsohxCiyoBZCbTkEP0WW1ULoIIdgq8jiWgh95BCeK0ItBt3kEB4qMne4fvSUQ5hW5O4hutJZDsFJkd5aCP3lEAwVWUELYRU5hIeKrKOFsJYcwoQiq2khrCiHcFGRNbUQXOR4crcgmBNFamnhsbfmkRy/v/5A3u9znTeK1NLinCdn6bpt5UgnJ0wouZ+DxEA5iArlICrdXsazJqAv46lyybomD2eHbYWoUA6i4igHlx0x+OXZQA4uOzB5Pi9sK0TFVw52Fm9cM2wjBzsLGiYzUvLBmzw+LfSczHWTsx/ucvjt7SihiKsW3l3bTI6svR2wiiRWi0rveAvYGAalSIwWAadiyTWHRroiRdcWGmVeOnyXYEWCteBLhx8RVkWaVYs9xpVjQyoeAydFsrQIy3DbyrHHvIo0rhZ77CvHBlk8Bg8VSdciMrdLVI4901UkXYt4XCrHhl08BhcVwdEiOKsJlQPnnyVfVhEcLbaMR9xechT6T8l3FYHS4iVOJ5tXWxFKNJc9n75/wdQiJZNpO8Ew60o5M1zJfF05ph9onGfJtQC7Vw7M9tED79wmbzBm8TgnNz8RcrC5zJHYUISgykE/7pJuxhbZVujHdRDM2NLXHHvoh4CTh1A5XiqPk5csXmYg8uovunLQjxOgzNhS2gr9eBc0MzbvZysnXDFgkRtosKlIW5BeiXaFEgJrxpZ7tUI/kM3YEtvKwPv9nZiUiDr/PsfF+DuVkBJmbAiVQ7g+9+kpe0KtMFHkEGrl7hYVQ8OSY7vZPnDyeELdiODk2O4vL6ASuqd6IIhyCKUzW3rwA1w5ttkrlMRElxvwOdByCNMXsWFJxx/hHAXk2CxucphPA+CQzKkhh2B7H+zW3CQeOpFKcgilb5VW0UKoJ4dQTpFaWghV5RBKKFJRC6G2HANAS+o6MWgixyDdkgZODLrJMQi2pJMTg7Zy7HESpaUQe5aQ48iELu1VOLKoHOQK+dsECSyUg6hQDqJCOYgK5SAqlIOoUA6iQjmICuUgKpSDqFAOokI5iArlICqUg6hQDqJCOYgK5SAqlIOo/AGYXkOfey9q7gAAAABJRU5ErkJggg==">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22FuturePath%22%2C%20%22short_name%22%3A%20%22FuturePath%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%230a0d0b%22%2C%20%22theme_color%22%3A%20%22%230a0d0b%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/svg%2Bxml%2C%253Csvg%2520xmlns%253D%2522http%253A//www.w3.org/2000/svg%2522%2520viewBox%253D%25220%25200%2520512%2520512%2522%253E%253Crect%2520width%253D%2522512%2522%2520height%253D%2522512%2522%2520rx%253D%2522112%2522%2520fill%253D%2522%25230a0d0b%2522/%253E%253Ccircle%2520cx%253D%2522256%2522%2520cy%253D%2522256%2522%2520r%253D%2522170%2522%2520fill%253D%2522none%2522%2520stroke%253D%2522%252322c55e%2522%2520stroke-width%253D%252222%2522/%253E%253Cpath%2520d%253D%2522M256%2520130l130%252060-130%252060-130-60z%2522%2520fill%253D%2522%252322c55e%2522/%253E%253Cpath%2520d%253D%2522M170%2520240v70c0%252030%252040%252052%252086%252052s86-22%252086-52v-70l-86%252040z%2522%2520fill%253D%2522%252316a34a%2522/%253E%253C/svg%253E%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/svg%2Bxml%22%2C%20%22purpose%22%3A%20%22any%22%7D%5D%7D">
+
+<style>
+:root{
+  --bg:#0a0d0b;--card:#121712;--text:#eafff2;--muted:#8fa89b;--primary:#22c55e;--primary-dk:#16a34a;
+  --lav:#132419;--border:#1f2e24;--danger:#f87171;--ok:#22c55e;--warn:#facc15;--r:16px;
+  --glow:0 0 18px rgba(34,197,94,.28);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{--bg:#f3f7f4;--card:#ffffff;--text:#0b1410;--muted:#57685e;--lav:#e6f6ec;--border:#dde8e1;}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);background-image:radial-gradient(circle at 15% 0%,rgba(34,197,94,.08),transparent 40%);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;min-height:100%;}
+h1,h2,h3{font-family:inherit;letter-spacing:-.02em}
+a{color:var(--primary);text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.btn{background:var(--primary);color:#04140a;border:none;border-radius:12px;padding:11px 18px;font-weight:700;font-size:14px;transition:all .15s;box-shadow:var(--glow)}
+.btn:hover{background:#4ade80;box-shadow:0 0 26px rgba(34,197,94,.45)}
+.btn.ghost{background:transparent;color:var(--primary);border:1.5px solid var(--primary);box-shadow:none}
+.btn.sm{padding:7px 12px;font-size:13px;border-radius:10px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:border-color .15s}
+.card:hover{border-color:#2c4636}
+input,select,textarea{width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;font-family:inherit}
+label{font-size:12px;color:var(--muted);font-weight:600;display:block;margin:10px 0 4px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:13px}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;background:var(--lav);color:var(--primary)}
+.bar-bg{background:var(--lav);border-radius:8px;height:10px;overflow:hidden;margin:6px 0}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--primary-dk),var(--primary));border-radius:8px;box-shadow:0 0 8px rgba(34,197,94,.5)}
+#app{display:flex;min-height:100vh}
+.sidebar{width:230px;flex:none;background:var(--card);border-right:1px solid var(--border);padding:18px 12px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar.hide{display:none}
+.brand{font-weight:800;font-size:19px;padding:6px 10px 18px;color:var(--primary-dk)}
+.navlink{display:block;padding:10px 12px;border-radius:10px;color:var(--text);font-size:14px;font-weight:500;margin-bottom:2px}
+.navlink.active,.navlink:hover{background:var(--lav);color:var(--primary-dk)}
+.main{flex:1;min-width:0;padding:20px clamp(16px,4vw,40px);max-width:1100px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:10px}
+.mobile-toggle{display:none;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 12px}
+@media(max-width:820px){.sidebar{position:fixed;z-index:20;box-shadow:0 0 30px rgba(0,0,0,.2)}.mobile-toggle{display:block}.main{width:100%}}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td,th{padding:8px;text-align:left;border-bottom:1px solid var(--border)}
+.overlay{position:fixed;inset:0;background:rgba(3,8,5,.72);display:flex;align-items:flex-start;justify-content:center;z-index:50;overflow-y:auto;padding:30px 14px}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:20px;max-width:680px;width:100%;padding:24px;margin-top:10px}
+.check{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:14px}
+.notice{background:var(--lav);border-left:4px solid var(--primary);padding:10px 14px;border-radius:10px;font-size:13.5px;margin-bottom:10px}
+.chatbox{height:400px;overflow-y:auto;border:1px solid var(--border);border-radius:14px;padding:14px;background:var(--bg)}
+.msg{max-width:80%;padding:9px 13px;border-radius:14px;margin-bottom:8px;font-size:14px;white-space:pre-wrap}
+.msg.user{background:var(--primary);color:#04140a;margin-left:auto;border-bottom-right-radius:3px;font-weight:600}
+.msg.ai{background:var(--card);border:1px solid var(--border);border-bottom-left-radius:3px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-cell{aspect-ratio:1;border-radius:8px;border:1px solid var(--border);padding:4px;font-size:12px;cursor:pointer;position:relative}
+.cal-cell.today{border-color:var(--primary);border-width:2px}
+.cal-cell.sel{background:var(--lav)}
+.cal-cell{aspect-ratio:auto;min-height:84px;overflow:hidden;padding:3px}
+.chip{background:var(--lav);color:var(--primary);border-left:3px solid var(--primary);border-radius:5px;font-size:10px;line-height:1.2;padding:2px 4px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.more{font-size:10px;color:var(--muted);margin-top:2px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--primary);position:absolute;bottom:4px;left:4px}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.b-late{background:rgba(248,113,113,.15);color:var(--danger)}.b-soon{background:rgba(250,204,21,.15);color:var(--warn)}.b-ok{background:rgba(34,197,94,.15);color:var(--ok)}
+.hero{text-align:center;padding:70px 16px 40px}
+.feat{cursor:default}
+.glow-text{text-shadow:0 0 24px rgba(34,197,94,.5)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:8px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const LS_KEY='fm_v1';
+const uid=()=>Math.random().toString(36).slice(2,9);
+const todayISO=()=>new Date().toISOString().slice(0,10);
+const MAJORS=['Computer Science','Software Engineering','Artificial Intelligence','Data Science','Cybersecurity','Robotics','Information Systems','Mathematics','Applied Mathematics','Physics','Chemistry','Biology','Biochemistry','Medicine','Dentistry','Pharmacy','Nursing','Biotechnology','Genetics','Neuroscience','Public Health','Economics','Finance','Accounting','Business Administration','Management','Marketing','Entrepreneurship','International Relations','Political Science','Law','International Law','Architecture','Urban Planning','Graphic Design','UI/UX Design','Industrial Design','Fashion Design','Psychology','Sociology','Journalism','Media Studies','Communications','Film Studies','Mechanical Engineering','Electrical Engineering','Civil Engineering','Environmental Engineering','Aerospace Engineering','Chemical Engineering','Petroleum Engineering','Mining Engineering','Materials Science','Linguistics','Translation Studies','Education','Pedagogy','History','Philosophy','Art History','Fine Arts','Music','Theatre','Anthropology','Geography','Agriculture','Veterinary Science','Sports Science','Hospitality Management','Logistics','Actuarial Science','Statistics','Astronomy','Geology','Oceanography'];
+
+function defaultState(){return{
+  user:null,
+  profile:{name:'',surname:'',age:'',country:'Казахстан',city:'',school:'',grade:'',gpa:'',major:'Computer Science',
+    countries:'',languages:'Русский, Казахский',english:'B1',olympiadsCount:0,projectsCount:0,competitionsCount:0,
+    volunteeringCount:0,internshipsCount:0,certificatesCount:0,researchCount:0,leadershipCount:0,
+    programmingCount:0,mathScore:50,
+    achievements:'',github:'',resume:''},
+  saved:{uni:[],opp:[]},
+  portfolio:{Academic:[],Projects:[],Olympiads:[],Competitions:[],Internships:[],Volunteering:[],Leadership:[],Research:[],Certificates:[],Awards:[]},
+  events:[],
+  applications:[],
+  chat:[]
+};}
+let state = load();
+function load(){try{const r=JSON.parse(localStorage.getItem(LS_KEY));const d=defaultState();if(!r)return d;
+  d.profile=Object.assign(d.profile,r.profile||{});
+  d.portfolio=Object.assign(d.portfolio,r.portfolio||{});
+  d.saved=Object.assign(d.saved,r.saved||{});
+  d.user=r.user||null; d.events=r.events||[]; d.applications=r.applications||[]; d.chat=r.chat||[];
+  return d;
+}catch(e){return defaultState();}}
+function save(){try{localStorage.setItem(LS_KEY,JSON.stringify(state));}catch(e){}}
+
+// ---------- DEMO DATA (mock/demo, not official — real deadlines/requirements must be verified on official sites) ----------
+const UNIS=[{"id": "nu", "name": "Nazarbayev University", "country": "Казахстан", "city": "Астана", "majors": ["Computer Science", "Engineering", "Medicine", "Economics"], "gpaMin": 3.6, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "Гранты покрывают большинство мест", "docs": ["Аттестат", "IELTS/TOEFL", "Эссе", "Рекомендательные письма"], "deadline": "Апрель (демо-дата)", "site": "https://nu.edu.kz"}, {"id": "kaznu", "name": "Al-Farabi KazNU", "country": "Казахстан", "city": "Алматы", "majors": ["Economics", "Medicine", "Law", "Computer Science"], "gpaMin": 3.2, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "Гранты + платное", "docs": ["Аттестат", "Сертификат языка"], "deadline": "Июль (демо-дата)", "site": "https://kaznu.kz"}, {"id": "enu", "name": "L.N. Gumilyov ENU", "country": "Казахстан", "city": "Астана", "majors": ["Law", "International Relations", "Computer Science"], "gpaMin": 3.0, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "Гранты + платное", "docs": ["Аттестат", "Сертификат языка"], "deadline": "Июль (демо-дата)", "site": "https://enu.kz"}, {"id": "satbayev", "name": "Satbayev University", "country": "Казахстан", "city": "Алматы", "majors": ["Mining Engineering", "Civil Engineering", "Petroleum Engineering"], "gpaMin": 2.9, "english": "IELTS 5.0+", "engPct": 50, "sat": false, "tuition": "Гранты доступны", "docs": ["Аттестат", "Сертификат языка"], "deadline": "Июль (демо-дата)", "site": "https://satbayev.university"}, {"id": "aitu", "name": "Astana IT University", "country": "Казахстан", "city": "Астана", "majors": ["Computer Science", "Data Science", "Cybersecurity"], "gpaMin": 3.0, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "Гранты доступны", "docs": ["Аттестат", "Портфолио проектов"], "deadline": "Июнь (демо-дата)", "site": "https://astanait.edu.kz"}, {"id": "kbtu", "name": "KBTU", "country": "Казахстан", "city": "Алматы", "majors": ["Computer Science", "Engineering", "Economics"], "gpaMin": 3.0, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "Гранты + платное", "docs": ["Аттестат", "Мотивационное письмо"], "deadline": "Июль (демо-дата)", "site": "https://kbtu.edu.kz"}, {"id": "sdu", "name": "SDU University", "country": "Казахстан", "city": "Каскелен", "majors": ["Computer Science", "Business Administration"], "gpaMin": 2.8, "english": "IELTS 5.0+", "engPct": 50, "sat": false, "tuition": "Гранты доступны", "docs": ["Аттестат"], "deadline": "Август (демо-дата)", "site": "https://sdu.edu.kz"}, {"id": "kimep", "name": "KIMEP University", "country": "Казахстан", "city": "Алматы", "majors": ["Business Administration", "Finance", "Law"], "gpaMin": 3.0, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "Платное + гранты", "docs": ["Аттестат", "Эссе"], "deadline": "Июль (демо-дата)", "site": "https://kimep.kz"}, {"id": "almau", "name": "AlmaU", "country": "Казахстан", "city": "Алматы", "majors": ["Marketing", "Business Administration", "Design"], "gpaMin": 2.7, "english": "IELTS 5.0+", "engPct": 50, "sat": false, "tuition": "Платное + гранты", "docs": ["Аттестат"], "deadline": "Август (демо-дата)", "site": "https://almau.edu.kz"}, {"id": "buketov", "name": "Karaganda Buketov University", "country": "Казахстан", "city": "Караганда", "majors": ["Education", "History", "Biology"], "gpaMin": 2.7, "english": "IELTS 4.5+", "engPct": 40, "sat": false, "tuition": "Гранты доступны", "docs": ["Аттестат"], "deadline": "Июль (демо-дата)", "site": "https://buketov.edu.kz"}, {"id": "mit", "name": "MIT", "country": "США", "city": "Кембридж", "majors": ["Computer Science", "Engineering", "Physics"], "gpaMin": 3.9, "english": "IELTS 7.5+", "engPct": 88, "sat": false, "tuition": "Need-blind aid для международных", "docs": ["Эссе x5", "Рекомендации", "SAT/ACT", "Портфолио"], "deadline": "1 января (демо-дата)", "site": "https://mit.edu"}, {"id": "stanford", "name": "Stanford University", "country": "США", "city": "Стэнфорд", "majors": ["Computer Science", "Artificial Intelligence", "Business Administration"], "gpaMin": 3.9, "english": "IELTS 7.0+", "engPct": 85, "sat": false, "tuition": "Need-based aid (демо)", "docs": ["Эссе", "Рекомендации", "SAT/ACT"], "deadline": "Январь (демо-дата)", "site": "https://stanford.edu"}, {"id": "harvard", "name": "Harvard University", "country": "США", "city": "Кембридж", "majors": ["Law", "Economics", "Medicine"], "gpaMin": 3.9, "english": "IELTS 7.5+", "engPct": 88, "sat": false, "tuition": "Need-blind aid (демо)", "docs": ["Эссе", "Рекомендации", "SAT/ACT"], "deadline": "Январь (демо-дата)", "site": "https://harvard.edu"}, {"id": "uoft", "name": "University of Toronto", "country": "Канада", "city": "Торонто", "majors": ["Computer Science", "Economics", "Medicine"], "gpaMin": 3.7, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "От $45,000/год (демо)", "docs": ["Транскрипт", "Эссе", "IELTS"], "deadline": "Январь (демо-дата)", "site": "https://utoronto.ca"}, {"id": "ubc", "name": "University of British Columbia", "country": "Канада", "city": "Ванкувер", "majors": ["Environmental Engineering", "Biology", "Business Administration"], "gpaMin": 3.5, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "От $40,000/год (демо)", "docs": ["Транскрипт", "Эссе"], "deadline": "Январь (демо-дата)", "site": "https://ubc.ca"}, {"id": "oxford", "name": "University of Oxford", "country": "Великобритания", "city": "Оксфорд", "majors": ["Law", "Philosophy", "Medicine"], "gpaMin": 3.8, "english": "IELTS 7.0+", "engPct": 85, "sat": false, "tuition": "Scholarships доступны (демо)", "docs": ["Эссе", "Рекомендации", "Собеседование"], "deadline": "Октябрь (демо-дата)", "site": "https://ox.ac.uk"}, {"id": "imperial", "name": "Imperial College London", "country": "Великобритания", "city": "Лондон", "majors": ["Mechanical Engineering", "Computer Science", "Physics"], "gpaMin": 3.7, "english": "IELTS 6.5+", "engPct": 75, "sat": false, "tuition": "От £32,000/год (демо)", "docs": ["Транскрипт", "Эссе"], "deadline": "Январь (демо-дата)", "site": "https://imperial.ac.uk"}, {"id": "sorbonne", "name": "Sorbonne University", "country": "Франция", "city": "Париж", "majors": ["Linguistics", "Art History", "Chemistry"], "gpaMin": 3.2, "english": "IELTS 6.0+", "engPct": 60, "sat": false, "tuition": "Символическая плата (демо)", "docs": ["Транскрипт", "Французский/английский сертификат"], "deadline": "Март (демо-дата)", "site": "https://sorbonne-universite.fr"}, {"id": "tum", "name": "TU Munich", "country": "Германия", "city": "Мюнхен", "majors": ["Mechanical Engineering", "Computer Science", "Physics"], "gpaMin": 3.3, "english": "IELTS 6.0+", "engPct": 60, "sat": false, "tuition": "Символическая плата (демо)", "docs": ["Транскрипт", "Немецкий/английский сертификат"], "deadline": "15 июля (демо-дата)", "site": "https://tum.de"}, {"id": "lmu", "name": "LMU Munich", "country": "Германия", "city": "Мюнхен", "majors": ["Medicine", "Biology", "Psychology"], "gpaMin": 3.4, "english": "IELTS 6.0+", "engPct": 60, "sat": false, "tuition": "Символическая плата (демо)", "docs": ["Транскрипт"], "deadline": "15 июля (демо-дата)", "site": "https://lmu.de"}, {"id": "tudelft", "name": "TU Delft", "country": "Нидерланды", "city": "Делфт", "majors": ["Civil Engineering", "Aerospace Engineering", "Architecture"], "gpaMin": 3.4, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "От €2,500/год для EU, выше для остальных (демо)", "docs": ["Транскрипт", "Эссе"], "deadline": "Май (демо-дата)", "site": "https://tudelft.nl"}, {"id": "ethz", "name": "ETH Zurich", "country": "Швейцария", "city": "Цюрих", "majors": ["Mathematics", "Physics", "Computer Science"], "gpaMin": 3.7, "english": "IELTS 7.0+", "engPct": 80, "sat": false, "tuition": "Низкая плата (демо)", "docs": ["Транскрипт", "Экзамен"], "deadline": "Апрель (демо-дата)", "site": "https://ethz.ch"}, {"id": "polimi", "name": "Politecnico di Milano", "country": "Италия", "city": "Милан", "majors": ["Architecture", "Industrial Design", "Civil Engineering"], "gpaMin": 3.2, "english": "IELTS 6.0+", "engPct": 60, "sat": false, "tuition": "От €4,000/год (демо)", "docs": ["Транскрипт", "Тест TOLC"], "deadline": "Июль (демо-дата)", "site": "https://polimi.it"}, {"id": "uc3m", "name": "Universidad Carlos III", "country": "Испания", "city": "Мадрид", "majors": ["Economics", "Journalism", "Law"], "gpaMin": 3.0, "english": "IELTS 5.5+", "engPct": 55, "sat": false, "tuition": "От €4,500/год (демо)", "docs": ["Транскрипт"], "deadline": "Июнь (демо-дата)", "site": "https://uc3m.es"}, {"id": "kaist", "name": "KAIST", "country": "Южная Корея", "city": "Тэджон", "majors": ["Computer Science", "Robotics", "Materials Science"], "gpaMin": 3.6, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "Стипендии доступны (демо)", "docs": ["Транскрипт", "Эссе"], "deadline": "Сентябрь (демо-дата)", "site": "https://kaist.ac.kr"}, {"id": "utokyo", "name": "University of Tokyo", "country": "Япония", "city": "Токио", "majors": ["Physics", "Engineering", "Economics"], "gpaMin": 3.6, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "Низкая плата для стипендиатов (демо)", "docs": ["Транскрипт", "Экзамен EJU"], "deadline": "Ноябрь (демо-дата)", "site": "https://u-tokyo.ac.jp"}, {"id": "tsinghua", "name": "Tsinghua University", "country": "Китай", "city": "Пекин", "majors": ["Computer Science", "Civil Engineering", "Economics"], "gpaMin": 3.6, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "Стипендии CSC доступны (демо)", "docs": ["Транскрипт", "HSK/английский тест"], "deadline": "Февраль (демо-дата)", "site": "https://tsinghua.edu.cn"}, {"id": "nus", "name": "National University of Singapore", "country": "Сингапур", "city": "Сингапур", "majors": ["Computer Science", "Economics", "Medicine"], "gpaMin": 3.6, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "Гранты доступны (демо)", "docs": ["Транскрипт", "Эссе", "Рекомендации"], "deadline": "Февраль (демо-дата)", "site": "https://nus.edu.sg"}, {"id": "unimelb", "name": "University of Melbourne", "country": "Австралия", "city": "Мельбурн", "majors": ["Psychology", "Business Administration", "Biology"], "gpaMin": 3.4, "english": "IELTS 6.5+", "engPct": 70, "sat": false, "tuition": "От AUD 40,000/год (демо)", "docs": ["Транскрипт", "Эссе"], "deadline": "Октябрь (демо-дата)", "site": "https://unimelb.edu.au"}, {"id": "kaust", "name": "KAUST", "country": "ОАЭ/регион Персидского залива", "city": "Тувал", "majors": ["Materials Science", "Computer Science", "Environmental Engineering"], "gpaMin": 3.5, "english": "IELTS 6.0+", "engPct": 65, "sat": false, "tuition": "Полное покрытие для магистратуры (демо)", "docs": ["Транскрипт", "Research proposal"], "deadline": "Март (демо-дата)", "site": "https://kaust.edu.sa"}, {"id": "bogazici", "name": "Boğaziçi University", "country": "Турция", "city": "Стамбул", "majors": ["Computer Science", "Economics", "Mechanical Engineering"], "gpaMin": 3.2, "english": "IELTS 6.0+", "engPct": 60, "sat": false, "tuition": "Низкая плата (демо)", "docs": ["Транскрипт", "YOS/SAT"], "deadline": "Июль (демо-дата)", "site": "https://boun.edu.tr"}];
+
+const _MC={CS:'Computer Science',ENG:'Engineering',ECO:'Economics',MED:'Medicine',LAW:'Law',BUS:'Business Administration',SCI:'Physics',BIO:'Biology',IR:'International Relations',ED:'Education',ARC:'Architecture',FIN:'Finance',ART:'Fine Arts',MATH:'Mathematics',PSY:'Psychology'};
+(function(){const have=new Set(UNIS.map(u=>u.name.toLowerCase()));
+`Princeton University|США|Принстон|3.9|7.5|princeton.edu|CS,ECO,SCI
+Yale University|США|Нью-Хейвен|3.9|7.5|yale.edu|LAW,ECO,MED
+Columbia University|США|Нью-Йорк|3.9|7.5|columbia.edu|FIN,ENG,IR
+University of Pennsylvania|США|Филадельфия|3.9|7.0|upenn.edu|BUS,MED,CS
+Brown University|США|Провиденс|3.8|7.0|brown.edu|CS,BIO,PSY
+Cornell University|США|Итака|3.8|7.0|cornell.edu|ENG,CS,BIO
+Dartmouth College|США|Хановер|3.8|7.0|dartmouth.edu|ECO,CS,PSY
+Caltech|США|Пасадена|3.9|7.0|caltech.edu|SCI,ENG,MATH
+UC Berkeley|США|Беркли|3.8|7.0|berkeley.edu|CS,ENG,ECO
+New York University|США|Нью-Йорк|3.6|7.0|nyu.edu|BUS,ART,CS
+NYU Abu Dhabi|ОАЭ|Абу-Даби|3.8|7.0|nyuad.nyu.edu|CS,ENG,ECO
+NYU Shanghai|Китай|Шанхай|3.6|6.5|shanghai.nyu.edu|BUS,CS,ECO
+Khalifa University|ОАЭ|Абу-Даби|3.3|6.0|ku.ac.ae|ENG,CS,SCI
+MBZUAI|ОАЭ|Абу-Даби|3.5|6.5|mbzuai.ac.ae|CS,MATH,ENG
+American University of Sharjah|ОАЭ|Шарджа|3.0|6.0|aus.edu|ENG,ARC,BUS
+UAE University|ОАЭ|Аль-Айн|3.0|5.5|uaeu.ac.ae|MED,ENG,BUS
+University of Dubai|ОАЭ|Дубай|2.8|5.5|ud.ac.ae|BUS,CS,LAW
+Heriot-Watt University Dubai|ОАЭ|Дубай|3.0|6.0|hw.ac.uk|ENG,CS,BUS
+University of Wollongong in Dubai|ОАЭ|Дубай|3.0|6.0|uowdubai.ac.ae|BUS,CS,ENG
+Middlesex University Dubai|ОАЭ|Дубай|2.8|6.0|mdx.ac.ae|BUS,CS,PSY
+BITS Pilani Dubai|ОАЭ|Дубай|3.2|6.0|bitsdubai.ac.ae|ENG,CS,ECO
+Zayed University|ОАЭ|Дубай|2.8|5.5|zu.ac.ae|BUS,ED,ART
+Murdoch University Dubai|ОАЭ|Дубай|2.8|6.0|murdoch.edu.au|BUS,CS,PSY
+Rochester Institute of Technology Dubai|ОАЭ|Дубай|3.0|6.0|rit.edu|CS,ENG,BUS
+Heriot-Watt University Dubai Campus|ОАЭ|Дубай|3.0|6.0|hw.ac.uk/dubai|ENG,CS,ARC
+Peking University|Китай|Пекин|3.7|6.5|pku.edu.cn|CS,ECO,LAW
+Fudan University|Китай|Шанхай|3.6|6.5|fudan.edu.cn|MED,ECO,CS
+Shanghai Jiao Tong University|Китай|Шанхай|3.6|6.5|sjtu.edu.cn|ENG,CS,MED
+Zhejiang University|Китай|Ханчжоу|3.6|6.5|zju.edu.cn|ENG,CS,SCI
+USTC|Китай|Хэфэй|3.6|6.5|ustc.edu.cn|SCI,CS,MATH
+Nanjing University|Китай|Нанкин|3.5|6.5|nju.edu.cn|SCI,CS,ECO
+Wuhan University|Китай|Ухань|3.3|6.0|whu.edu.cn|LAW,CS,ECO
+Sun Yat-sen University|Китай|Гуанчжоу|3.4|6.0|sysu.edu.cn|MED,BUS,CS
+Xi'an Jiaotong University|Китай|Сиань|3.3|6.0|xjtu.edu.cn|ENG,CS,MED
+HKU|Китай|Гонконг|3.7|6.5|hku.hk|MED,LAW,CS
+CUHK|Китай|Гонконг|3.6|6.5|cuhk.edu.hk|MED,BUS,CS
+HKUST|Китай|Гонконг|3.6|6.5|hkust.edu.hk|CS,ENG,BUS
+McGill University|Канада|Монреаль|3.6|6.5|mcgill.ca|MED,LAW,CS
+University of Waterloo|Канада|Ватерлоо|3.6|6.5|uwaterloo.ca|CS,ENG,MATH
+McMaster University|Канада|Гамильтон|3.4|6.5|mcmaster.ca|MED,ENG,BIO
+University of Alberta|Канада|Эдмонтон|3.3|6.5|ualberta.ca|ENG,BIO,CS
+University of Montreal|Канада|Монреаль|3.3|6.5|umontreal.ca|MED,LAW,CS
+Queen's University|Канада|Кингстон|3.4|6.5|queensu.ca|BUS,ENG,LAW
+Western University|Канада|Лондон (Онтарио)|3.3|6.5|uwo.ca|BUS,MED,ENG
+Simon Fraser University|Канада|Бернаби|3.2|6.5|sfu.ca|CS,BUS,ENG
+University of Calgary|Канада|Калгари|3.2|6.5|ucalgary.ca|ENG,MED,BUS
+Nanyang Technological University|Сингапур|Сингапур|3.6|6.5|ntu.edu.sg|ENG,CS,BUS
+Singapore Management University|Сингапур|Сингапур|3.4|6.5|smu.edu.sg|BUS,ECO,LAW
+SUTD|Сингапур|Сингапур|3.4|6.5|sutd.edu.sg|ENG,CS,ARC
+Lomonosov Moscow State University|Россия|Москва|3.5|5.5|msu.ru|MATH,SCI,LAW
+Saint Petersburg State University|Россия|Санкт-Петербург|3.4|5.5|spbu.ru|LAW,IR,ECO
+HSE University|Россия|Москва|3.5|6.0|hse.ru|ECO,CS,BUS
+MIPT|Россия|Долгопрудный|3.6|5.5|mipt.ru|SCI,CS,MATH
+MGIMO|Россия|Москва|3.5|6.0|mgimo.ru|IR,LAW,ECO
+ITMO University|Россия|Санкт-Петербург|3.4|5.5|itmo.ru|CS,ENG,SCI
+Novosibirsk State University|Россия|Новосибирск|3.3|5.5|nsu.ru|SCI,CS,MATH
+Bauman Moscow State Technical University|Россия|Москва|3.2|5.5|bmstu.ru|ENG,CS,SCI
+Tomsk State University|Россия|Томск|3.0|5.0|tsu.ru|SCI,BIO,CS
+RUDN University|Россия|Москва|3.0|5.0|rudn.ru|MED,ECO,LAW
+Seoul National University|Южная Корея|Сеул|3.7|6.5|snu.ac.kr|ENG,MED,ECO
+Yonsei University|Южная Корея|Сеул|3.6|6.5|yonsei.ac.kr|BUS,MED,IR
+Korea University|Южная Корея|Сеул|3.6|6.5|korea.ac.kr|LAW,BUS,ENG
+POSTECH|Южная Корея|Похан|3.6|6.5|postech.ac.kr|SCI,ENG,CS
+Sungkyunkwan University|Южная Корея|Сеул|3.4|6.0|skku.edu|ENG,BUS,CS
+Hanyang University|Южная Корея|Сеул|3.3|6.0|hanyang.ac.kr|ENG,ARC,BUS
+UNIST|Южная Корея|Ульсан|3.4|6.0|unist.ac.kr|ENG,CS,SCI
+Kyoto University|Япония|Киото|3.7|6.5|kyoto-u.ac.jp|SCI,MED,ENG
+Osaka University|Япония|Осака|3.5|6.5|osaka-u.ac.jp|ENG,MED,SCI
+Tohoku University|Япония|Сэндай|3.4|6.0|tohoku.ac.jp|ENG,SCI,MED
+Tokyo Institute of Technology|Япония|Токио|3.5|6.0|titech.ac.jp|ENG,CS,SCI
+Waseda University|Япония|Токио|3.4|6.0|waseda.jp|BUS,IR,ECO
+Keio University|Япония|Токио|3.4|6.0|keio.ac.jp|ECO,MED,LAW
+Nagoya University|Япония|Нагоя|3.4|6.0|nagoya-u.ac.jp|SCI,ENG,MED
+Cambridge University|Великобритания|Кембридж|3.9|7.5|cam.ac.uk|SCI,MATH,MED
+UCL|Великобритания|Лондон|3.7|6.5|ucl.ac.uk|ARC,LAW,ENG
+LSE|Великобритания|Лондон|3.8|7.0|lse.ac.uk|ECO,IR,LAW
+King's College London|Великобритания|Лондон|3.5|6.5|kcl.ac.uk|MED,LAW,IR
+University of Edinburgh|Великобритания|Эдинбург|3.6|6.5|ed.ac.uk|CS,MED,ECO
+University of Manchester|Великобритания|Манчестер|3.4|6.5|manchester.ac.uk|ENG,BUS,CS
+ANU|Австралия|Канберра|3.5|6.5|anu.edu.au|SCI,IR,LAW
+University of Sydney|Австралия|Сидней|3.5|6.5|sydney.edu.au|MED,LAW,BUS
+UNSW|Австралия|Сидней|3.5|6.5|unsw.edu.au|ENG,CS,BUS
+Technical University of Berlin|Германия|Берлин|3.2|6.0|tu.berlin|ENG,CS,ARC
+Heidelberg University|Германия|Гейдельберг|3.5|6.0|uni-heidelberg.de|MED,SCI,LAW
+RWTH Aachen|Германия|Аахен|3.3|6.0|rwth-aachen.de|ENG,CS,SCI
+EPFL|Швейцария|Лозанна|3.7|6.5|epfl.ch|ENG,CS,SCI
+University of Amsterdam|Нидерланды|Амстердам|3.4|6.5|uva.nl|ECO,PSY,LAW
+KU Leuven|Бельгия|Лёвен|3.4|6.5|kuleuven.be|ENG,MED,LAW
+Charles University|Чехия|Прага|3.0|6.0|cuni.cz|MED,LAW,SCI
+Jagiellonian University|Польша|Краков|3.0|5.5|uj.edu.pl|MED,LAW,CS
+Middle East Technical University|Турция|Анкара|3.3|6.0|metu.edu.tr|ENG,CS,ARC
+Koç University|Турция|Стамбул|3.4|6.5|ku.edu.tr|ENG,BUS,MED
+Bilkent University|Турция|Анкара|3.4|6.5|bilkent.edu.tr|CS,ECO,ENG
+IIT Bombay|Индия|Мумбаи|3.6|6.0|iitb.ac.in|ENG,CS,SCI
+University of Malaya|Малайзия|Куала-Лумпур|3.0|5.5|um.edu.my|ENG,MED,BUS
+Chulalongkorn University|Таиланд|Бангкок|3.2|6.0|chula.ac.th|ENG,MED,BUS
+University of São Paulo|Бразилия|Сан-Паулу|3.2|5.5|usp.br|MED,ENG,LAW
+University of Cape Town|ЮАР|Кейптаун|3.2|6.5|uct.ac.za|MED,LAW,ENG
+Khoja Akhmet Yassawi University|Казахстан|Туркестан|2.7|4.5|iuth.edu.kz|MED,ED,LAW
+Kazakh-British Technical University (КБТУ)|Казахстан|Алматы|3.0|5.5|kbtu.edu.kz|CS,ENG,ECO
+Narxoz University|Казахстан|Алматы|2.8|5.0|narxoz.kz|FIN,ECO,BUS
+Turan University|Казахстан|Алматы|2.7|5.0|turan-edu.kz|BUS,LAW,IR
+Caspian University|Казахстан|Алматы|2.7|5.0|cu.edu.kz|LAW,BUS,ECO
+Kazakh National Medical University|Казахстан|Алматы|3.2|5.0|kaznmu.edu.kz|MED,BIO,PSY
+Astana Medical University|Казахстан|Астана|3.2|5.0|amu.kz|MED,BIO,PSY
+Kazakh-German University (DKU)|Казахстан|Алматы|3.0|5.5|dku.kz|ENG,ECO,CS
+International IT University (IITU)|Казахстан|Алматы|3.0|5.5|iitu.edu.kz|CS,ENG,BUS
+Kazakh National Agrarian University|Казахстан|Алматы|2.7|4.5|kaznau.kz|BIO,ENG,ECO
+Abai Kazakh National Pedagogical University|Казахстан|Алматы|2.7|4.5|kaznpu.kz|ED,PSY,ART
+Kazakh Humanitarian Law University (КазГЮУ)|Казахстан|Астана|3.0|5.0|kazguu.kz|LAW,IR,ECO
+Eurasian Technological University|Казахстан|Алматы|2.7|4.5|etu.edu.kz|ENG,CS,BUS
+Almaty Management University|Казахстан|Алматы|2.8|5.0|almau.edu.kz|BUS,FIN,ECO
+Shakarim University|Казахстан|Семей|2.7|4.5|shakarim.kz|ENG,ED,BIO
+Semey Medical University|Казахстан|Семей|3.0|4.5|nmu.kz|MED,BIO,PSY
+D. Serikbayev East Kazakhstan Technical University|Казахстан|Усть-Каменогорск|2.7|4.5|ektu.kz|ENG,CS,SCI
+S. Amanzholov East Kazakhstan University|Казахстан|Усть-Каменогорск|2.7|4.5|vkgu.kz|ED,CS,LAW
+Karaganda Medical University|Казахстан|Караганда|3.0|4.5|qmu.kz|MED,BIO,PSY
+Karaganda Technical University|Казахстан|Караганда|2.7|4.5|kstu.kz|ENG,CS,SCI
+M. Auezov South Kazakhstan University|Казахстан|Шымкент|2.7|4.5|auezov.edu.kz|ENG,ED,BIO
+South Kazakhstan Medical Academy|Казахстан|Шымкент|3.0|4.5|skma.kz|MED,BIO,PSY
+Korkyt Ata Kyzylorda University|Казахстан|Кызылорда|2.5|4.5|korkyt.kz|ED,ENG,BIO
+Zhetysu University|Казахстан|Талдыкорган|2.5|4.5|zhetysu.edu.kz|ED,ENG,BIO
+K. Zhubanov Aktobe Regional University|Казахстан|Актобе|2.5|4.5|arsu.kz|ED,SCI,BIO
+West Kazakhstan Medical University|Казахстан|Актобе|3.0|4.5|zkmu.kz|MED,BIO,PSY
+Atyrau University of Oil and Gas|Казахстан|Атырау|2.7|4.5|aogu.edu.kz|ENG,SCI,ECO
+Caspian University of Technology and Engineering|Казахстан|Актау|2.7|4.5|caspiy.edu.kz|ENG,SCI,CS
+Kostanay Regional University (Baitursynov)|Казахстан|Костанай|2.5|4.5|ksu.edu.kz|ED,BIO,ENG
+Toraighyrov University|Казахстан|Павлодар|2.7|4.5|tou.edu.kz|ENG,ED,CS
+Kokshetau University (Valikhanov)|Казахстан|Кокшетау|2.5|4.5|shokan.edu.kz|ED,BIO,CS
+North Kazakhstan University (Kozybayev)|Казахстан|Петропавловск|2.5|4.5|nkzu.edu.kz|ED,ENG,BIO
+Sarsen Amanzholov Taraz Regional University|Казахстан|Тараз|2.5|4.5|dku.kz/taraz|ED,ENG,BIO
+Taraz Regional University|Казахстан|Тараз|2.5|4.5|tarsu.kz|ED,ENG,BIO`.split('\n').forEach((r,i)=>{const[n,c,ci,g,ie,d,m]=r.split('|');if(have.has(n.toLowerCase()))return;have.add(n.toLowerCase());
+const us=c==='США';UNIS.push({id:'x'+i,name:n,country:c,city:ci,majors:m.split(',').map(k=>_MC[k]),gpaMin:+g,english:'IELTS '+ie+'+',engPct:Math.round(ie*10+5),sat:us,
+tuition:'Уточняйте на сайте вуза',docs:us?['Транскрипт','Эссе','SAT/ACT','Рекомендации']:['Аттестат/транскрипт','Сертификат языка'],deadline:'Уточняйте на сайте вуза',site:'https://'+d});});})();
+const OPPS=[{"id": "o1", "title": "Full Scholarship — Global Merit Award", "org": "Global Merit Foundation", "cat": "Scholarships", "country": "Международно", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-12-15", "link": "#", "desc": "Стипендия на полное покрытие обучения (демо-данные)."}, {"id": "o2", "title": "Bolashak Scholarship", "org": "МОН РК", "cat": "Scholarships", "country": "Казахстан", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-05-01", "link": "#", "desc": "Государственная стипендия на обучение за рубежом (демо-данные)."}, {"id": "o3", "title": "DAAD Scholarship for Kazakhstan", "org": "DAAD", "cat": "Scholarships", "country": "Германия", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-11-01", "link": "#", "desc": "Немецкая госстипендия для студентов из Казахстана (демо-данные)."}, {"id": "o4", "title": "Chevening Scholarship", "org": "UK Government", "cat": "Scholarships", "country": "Великобритания", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-11-05", "link": "#", "desc": "Британская государственная стипендия для магистратуры (демо-данные)."}, {"id": "o5", "title": "Fulbright Program", "org": "US Department of State", "cat": "Scholarships", "country": "США", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-05-15", "link": "#", "desc": "Программа академического обмена США (демо-данные)."}, {"id": "o6", "title": "Erasmus Mundus Scholarship", "org": "European Commission", "cat": "Scholarships", "country": "Международно (ЕС)", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-01-15", "link": "#", "desc": "Стипендия на совместные магистерские программы в Европе (демо-данные)."}, {"id": "o7", "title": "MEXT Scholarship", "org": "Правительство Японии", "cat": "Scholarships", "country": "Япония", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-06-01", "link": "#", "desc": "Японская государственная стипендия (демо-данные)."}, {"id": "o8", "title": "CSC Scholarship", "org": "China Scholarship Council", "cat": "Scholarships", "country": "Китай", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-04-01", "link": "#", "desc": "Китайская государственная стипендия (демо-данные)."}, {"id": "o9", "title": "Turkiye Burslari Scholarship", "org": "Правительство Турции", "cat": "Scholarships", "country": "Турция", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-02-20", "link": "#", "desc": "Турецкая государственная стипендия (демо-данные)."}, {"id": "o10", "title": "Merit Scholarship for STEM Women", "org": "STEM Girls Fund", "cat": "Scholarships", "country": "Международно", "mode": "—", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-10-10", "link": "#", "desc": "Стипендия для девушек в STEM-специальностях (демо-данные)."}, {"id": "o11", "title": "Partial Scholarship — Regional Talent", "org": "Regional Talent Fund", "cat": "Scholarships", "country": "Казахстан", "mode": "—", "cost": "Частично", "major": "Любая", "deadline": "2026-09-01", "link": "#", "desc": "Частичная стипендия для региональных школьников (демо-данные)."}, {"id": "o12", "title": "Need-Based Grant for Undergraduates", "org": "OpenAccess Fund", "cat": "Grants", "country": "Международно", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-08-20", "link": "#", "desc": "Грант на основе финансовой нуждаемости (демо-данные)."}, {"id": "o13", "title": "Chemistry Research Grant for Students", "org": "SciYouth", "cat": "Grants", "country": "Международно", "mode": "—", "cost": "Бесплатно", "major": "Medicine", "deadline": "2026-12-05", "link": "#", "desc": "Грант на исследовательский проект по химии (демо-данные)."}, {"id": "o14", "title": "Undergraduate Research Grant", "org": "National Science Fund KZ", "cat": "Grants", "country": "Казахстан", "mode": "—", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-09-25", "link": "#", "desc": "Грант на студенческое исследование (демо-данные)."}, {"id": "o15", "title": "Green Innovation Grant", "org": "EcoFund", "cat": "Grants", "country": "Международно", "mode": "—", "cost": "Бесплатно", "major": "Environmental Engineering", "deadline": "2026-11-18", "link": "#", "desc": "Грант на экологические инновационные проекты (демо-данные)."}, {"id": "o16", "title": "Tech Internship Program", "org": "TechStart", "cat": "Internships", "country": "Казахстан", "mode": "Онлайн", "cost": "Оплачивается", "major": "Computer Science", "deadline": "2026-10-25", "link": "#", "desc": "Стажировка для junior-разработчиков (демо-данные)."}, {"id": "o17", "title": "Finance Summer Internship", "org": "KZ Invest Bank", "cat": "Internships", "country": "Казахстан", "mode": "Офлайн", "cost": "Оплачивается", "major": "Finance", "deadline": "2026-11-01", "link": "#", "desc": "Летняя стажировка в инвестиционном банке (демо-данные)."}, {"id": "o18", "title": "Marketing Internship", "org": "BrandLab", "cat": "Internships", "country": "Казахстан", "mode": "Онлайн", "cost": "Оплачивается", "major": "Marketing", "deadline": "2026-10-15", "link": "#", "desc": "Стажировка в маркетинговом агентстве (демо-данные)."}, {"id": "o19", "title": "Legal Internship Program", "org": "LawFirm KZ", "cat": "Internships", "country": "Казахстан", "mode": "Офлайн", "cost": "Оплачивается", "major": "Law", "deadline": "2026-11-10", "link": "#", "desc": "Стажировка в юридической фирме (демо-данные)."}, {"id": "o20", "title": "Data Analytics Internship", "org": "DataWorks", "cat": "Internships", "country": "Международно", "mode": "Онлайн", "cost": "Оплачивается", "major": "Data Science", "deadline": "2026-12-01", "link": "#", "desc": "Удалённая стажировка по анализу данных (демо-данные)."}, {"id": "o21", "title": "Architecture Studio Internship", "org": "ArchStudio", "cat": "Internships", "country": "Казахстан", "mode": "Офлайн", "cost": "Оплачивается", "major": "Architecture", "deadline": "2026-10-20", "link": "#", "desc": "Стажировка в архитектурном бюро (демо-данные)."}, {"id": "o22", "title": "Biotech Lab Internship", "org": "BioLab KZ", "cat": "Internships", "country": "Казахстан", "mode": "Офлайн", "cost": "Оплачивается", "major": "Biotechnology", "deadline": "2026-11-05", "link": "#", "desc": "Стажировка в биотехнологической лаборатории (демо-данные)."}, {"id": "o23", "title": "UX Design Internship", "org": "DesignHub", "cat": "Internships", "country": "Международно", "mode": "Онлайн", "cost": "Оплачивается", "major": "UI/UX Design", "deadline": "2026-12-10", "link": "#", "desc": "Удалённая стажировка UX-дизайнера (демо-данные)."}, {"id": "o24", "title": "Kazakhstan Youth Economic Case Cup", "org": "EconClub", "cat": "Competitions", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Economics", "deadline": "2026-11-05", "link": "#", "desc": "Кейс-чемпионат по экономике и бизнесу (демо-данные)."}, {"id": "o25", "title": "National Business Case Championship", "org": "Junior Achievement KZ", "cat": "Competitions", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Business Administration", "deadline": "2026-10-30", "link": "#", "desc": "Национальный чемпионат по бизнес-кейсам (демо-данные)."}, {"id": "o26", "title": "Young Architects Design Contest", "org": "ArchYouth", "cat": "Competitions", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Architecture", "deadline": "2026-11-12", "link": "#", "desc": "Конкурс архитектурных проектов для школьников (демо-данные)."}, {"id": "o27", "title": "International Debate Championship", "org": "WSDC", "cat": "Competitions", "country": "Международно", "mode": "Офлайн", "cost": "Платно", "major": "Любая", "deadline": "2026-12-01", "link": "#", "desc": "Международный чемпионат по дебатам (демо-данные)."}, {"id": "o28", "title": "Legal Moot Court Competition", "org": "Moot Court KZ", "cat": "Competitions", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Law", "deadline": "2026-11-20", "link": "#", "desc": "Учебный судебный процесс для студентов права (демо-данные)."}, {"id": "o29", "title": "Creative Writing Contest", "org": "WordCraft", "cat": "Competitions", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Journalism", "deadline": "2026-10-28", "link": "#", "desc": "Международный конкурс творческого письма (демо-данные)."}, {"id": "o30", "title": "Robotics Cup Kazakhstan", "org": "RoboCup KZ", "cat": "Competitions", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Robotics", "deadline": "2026-11-15", "link": "#", "desc": "Соревнование по робототехнике (демо-данные)."}, {"id": "o31", "title": "Math Modeling Challenge", "org": "MathWorks", "cat": "Competitions", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Applied Mathematics", "deadline": "2026-12-08", "link": "#", "desc": "Международный конкурс по математическому моделированию (демо-данные)."}, {"id": "o32", "title": "Daryn National Olympiad", "org": "Daryn", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-11-15", "link": "#", "desc": "Национальная олимпиада для одарённых школьников (Daryn) (демо-данные)."}, {"id": "o33", "title": "Republican Mathematics Olympiad", "org": "МОН РК", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Mathematics", "deadline": "2026-10-25", "link": "#", "desc": "Республиканская олимпиада по математике (демо-данные)."}, {"id": "o34", "title": "Republican Physics Olympiad", "org": "МОН РК", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Physics", "deadline": "2026-10-27", "link": "#", "desc": "Республиканская олимпиада по физике (демо-данные)."}, {"id": "o35", "title": "Republican Chemistry Olympiad", "org": "МОН РК", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Chemistry", "deadline": "2026-10-29", "link": "#", "desc": "Республиканская олимпиада по химии (демо-данные)."}, {"id": "o36", "title": "Republican Biology Olympiad", "org": "МОН РК", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Biology", "deadline": "2026-11-01", "link": "#", "desc": "Республиканская олимпиада по биологии (демо-данные)."}, {"id": "o37", "title": "Republican English Language Olympiad", "org": "МОН РК", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Linguistics", "deadline": "2026-11-03", "link": "#", "desc": "Республиканская олимпиада по английскому языку (демо-данные)."}, {"id": "o38", "title": "NIS IT Olympiad", "org": "НИШ", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-10-20", "link": "#", "desc": "Олимпиада по информатике среди школьников НИШ и других школ (демо-данные)."}, {"id": "o39", "title": "International Astronomy Olympiad", "org": "IAO", "cat": "Olympiads", "country": "Международно", "mode": "Офлайн", "cost": "Бесплатно", "major": "Physics", "deadline": "2026-11-15", "link": "#", "desc": "Профильная олимпиада по астрономии для школьников (демо-данные)."}, {"id": "o40", "title": "International Linguistics Olympiad", "org": "IOL", "cat": "Olympiads", "country": "Международно", "mode": "Офлайн", "cost": "Бесплатно", "major": "Linguistics", "deadline": "2026-11-22", "link": "#", "desc": "Международная олимпиада по лингвистике (демо-данные)."}, {"id": "o41", "title": "Model United Nations Almaty", "org": "MUN Almaty", "cat": "Olympiads", "country": "Казахстан", "mode": "Офлайн", "cost": "Платно", "major": "International Relations", "deadline": "2026-11-10", "link": "#", "desc": "Модель ООН для развития soft skills и лидерства (демо-данные)."}, {"id": "o42", "title": "Community Solar Project", "org": "GreenKZ", "cat": "Projects", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Environmental Engineering", "deadline": "2026-11-25", "link": "#", "desc": "Проект по установке солнечных панелей в школах (демо-данные)."}, {"id": "o43", "title": "Open-Source Learning App", "org": "DevCommunity", "cat": "Projects", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-12-05", "link": "#", "desc": "Совместная разработка образовательного приложения с открытым кодом (демо-данные)."}, {"id": "o44", "title": "Youth Podcast Initiative", "org": "MediaYouth", "cat": "Projects", "country": "Казахстан", "mode": "Онлайн", "cost": "Бесплатно", "major": "Journalism", "deadline": "2026-10-18", "link": "#", "desc": "Создание подкаста силами школьников (демо-данные)."}, {"id": "o45", "title": "Mobile Health Data Project", "org": "HealthTech KZ", "cat": "Projects", "country": "Казахстан", "mode": "Онлайн", "cost": "Бесплатно", "major": "Public Health", "deadline": "2026-11-30", "link": "#", "desc": "Сбор и анализ данных для мобильного здравоохранения (демо-данные)."}, {"id": "o46", "title": "Urban Garden Initiative", "org": "EcoKZ", "cat": "Projects", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Agriculture", "deadline": "2026-10-22", "link": "#", "desc": "Проект городского озеленения силами волонтёров (демо-данные)."}, {"id": "o47", "title": "AI Chatbot for Students", "org": "AI Club KZ", "cat": "Projects", "country": "Казахстан", "mode": "Онлайн", "cost": "Бесплатно", "major": "Artificial Intelligence", "deadline": "2026-12-01", "link": "#", "desc": "Разработка учебного AI-чатбота (демо-данные)."}, {"id": "o48", "title": "Historical Archive Digitization", "org": "HistoryLab", "cat": "Projects", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "History", "deadline": "2026-11-08", "link": "#", "desc": "Оцифровка исторических архивов региона (демо-данные)."}, {"id": "o49", "title": "Renewable Energy Research Project", "org": "EnergyFuture", "cat": "Projects", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Environmental Engineering", "deadline": "2026-12-12", "link": "#", "desc": "Исследовательский проект по возобновляемой энергии (демо-данные)."}, {"id": "o50", "title": "Youth Startup Incubator", "org": "StartupHub KZ", "cat": "Startups", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Business Administration", "deadline": "2026-11-20", "link": "#", "desc": "Инкубатор для стартапов старшеклассников и студентов (демо-данные)."}, {"id": "o51", "title": "EdTech Startup Challenge", "org": "EdTech Ventures", "cat": "Startups", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-12-10", "link": "#", "desc": "Конкурс стартап-идей в сфере образования (демо-данные)."}, {"id": "o52", "title": "Green Startup Accelerator", "org": "GreenVentures", "cat": "Startups", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Environmental Engineering", "deadline": "2026-11-28", "link": "#", "desc": "Акселератор для эко-стартапов (демо-данные)."}, {"id": "o53", "title": "FinTech Student Startup Cup", "org": "FinTech KZ", "cat": "Startups", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Finance", "deadline": "2026-12-02", "link": "#", "desc": "Конкурс финтех-стартапов среди студентов (демо-данные)."}, {"id": "o54", "title": "HealthTech Startup Weekend", "org": "Startup Weekend", "cat": "Startups", "country": "Международно", "mode": "Офлайн", "cost": "Платно", "major": "Public Health", "deadline": "2026-11-14", "link": "#", "desc": "Уикенд по созданию стартапов в здравоохранении (демо-данные)."}, {"id": "o55", "title": "Social Impact Startup Fund", "org": "Impact Fund KZ", "cat": "Startups", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-12-18", "link": "#", "desc": "Грантовый конкурс для социальных стартапов (демо-данные)."}, {"id": "o56", "title": "Global AI Hackathon", "org": "DevChallenge", "cat": "Hackathons", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-12-01", "link": "#", "desc": "48-часовой хакатон по AI-проектам (демо-данные)."}, {"id": "o57", "title": "Kazakhstan National Hackathon", "org": "Digital KZ", "cat": "Hackathons", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-11-16", "link": "#", "desc": "Национальный хакатон по цифровым решениям (демо-данные)."}, {"id": "o58", "title": "EdTech Hackathon", "org": "HackEd", "cat": "Hackathons", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-12-06", "link": "#", "desc": "Хакатон образовательных технологий (демо-данные)."}, {"id": "o59", "title": "Cybersecurity CTF Hackathon", "org": "CyberKZ", "cat": "Hackathons", "country": "Казахстан", "mode": "Онлайн", "cost": "Бесплатно", "major": "Cybersecurity", "deadline": "2026-11-22", "link": "#", "desc": "Соревнование Capture The Flag по кибербезопасности (демо-данные)."}, {"id": "o60", "title": "Girls Who Code Hackathon", "org": "Girls Who Code", "cat": "Hackathons", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Computer Science", "deadline": "2026-12-09", "link": "#", "desc": "Хакатон для девушек, изучающих программирование (демо-данные)."}, {"id": "o61", "title": "HealthTech Hackathon", "org": "MedHack", "cat": "Hackathons", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Public Health", "deadline": "2026-11-27", "link": "#", "desc": "Хакатон медицинских технологий (демо-данные)."}, {"id": "o62", "title": "Volunteer Eco Project", "org": "EcoKZ", "cat": "Volunteering", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Любая", "deadline": "2026-10-15", "link": "#", "desc": "Волонтёрская экологическая инициатива (демо-данные)."}, {"id": "o63", "title": "Hospital Volunteer Program", "org": "Red Crescent KZ", "cat": "Volunteering", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Medicine", "deadline": "2026-11-05", "link": "#", "desc": "Волонтёрство в больницах (демо-данные)."}, {"id": "o64", "title": "Teach-a-Child Volunteering", "org": "EduVolunteer", "cat": "Volunteering", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Education", "deadline": "2026-11-12", "link": "#", "desc": "Волонтёрское репетиторство для младших школьников (демо-данные)."}, {"id": "o65", "title": "Summer School: Data Science Bootcamp", "org": "DS Camp", "cat": "Summer Schools", "country": "Казахстан", "mode": "Офлайн", "cost": "Есть грантовые места", "major": "Data Science", "deadline": "2026-11-20", "link": "#", "desc": "Интенсив по анализу данных для школьников (демо-данные)."}, {"id": "o66", "title": "Summer School in Biomedical Sciences", "org": "BioSummer", "cat": "Summer Schools", "country": "США", "mode": "Офлайн", "cost": "Платно (есть гранты)", "major": "Medicine", "deadline": "2026-12-01", "link": "#", "desc": "Летняя школа по биомедицине (демо-данные)."}, {"id": "o67", "title": "Summer School in Design Thinking", "org": "DesignSummer", "cat": "Summer Schools", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "UI/UX Design", "deadline": "2026-11-18", "link": "#", "desc": "Летняя школа по дизайн-мышлению (демо-данные)."}, {"id": "o68", "title": "Summer Research Program in Biology", "org": "BioFuture", "cat": "Research Programs", "country": "США", "mode": "Офлайн", "cost": "Платно (есть гранты)", "major": "Medicine", "deadline": "2026-11-30", "link": "#", "desc": "Летняя исследовательская программа по биологии (демо-данные)."}, {"id": "o69", "title": "Young Researchers Program", "org": "ScienceKZ", "cat": "Research Programs", "country": "Казахстан", "mode": "Офлайн", "cost": "Бесплатно", "major": "Physics", "deadline": "2026-11-24", "link": "#", "desc": "Программа для начинающих исследователей (демо-данные)."}, {"id": "o70", "title": "Economics Research Fellowship", "org": "EconLab", "cat": "Research Programs", "country": "Международно", "mode": "Онлайн", "cost": "Бесплатно", "major": "Economics", "deadline": "2026-12-14", "link": "#", "desc": "Исследовательская стажировка по экономике (демо-данные)."}, {"id": "o71", "title": "Youth Science Conference", "org": "ScienceYouth KZ", "cat": "Conferences", "country": "Казахстан", "mode": "Офлайн", "cost": "Платно", "major": "Любая", "deadline": "2026-11-19", "link": "#", "desc": "Научная конференция для школьников и студентов (демо-данные)."}, {"id": "o72", "title": "International Model UN Conference", "org": "MUN International", "cat": "Conferences", "country": "Международно", "mode": "Офлайн", "cost": "Платно", "major": "International Relations", "deadline": "2026-12-03", "link": "#", "desc": "Международная конференция Model UN (демо-данные)."}, {"id": "o73", "title": "Coursera Machine Learning Course", "org": "Coursera/Stanford", "cat": "Courses", "country": "Онлайн", "mode": "Онлайн", "cost": "Бесплатно (аудит)", "major": "Computer Science", "deadline": "Без дедлайна", "link": "#", "desc": "Классический курс по машинному обучению (демо-данные)."}, {"id": "o74", "title": "edX Intro to Psychology", "org": "edX/Harvard", "cat": "Courses", "country": "Онлайн", "mode": "Онлайн", "cost": "Бесплатно (аудит)", "major": "Psychology", "deadline": "Без дедлайна", "link": "#", "desc": "Вводный курс по психологии (демо-данные)."}, {"id": "o75", "title": "Khan Academy SAT Prep", "org": "Khan Academy", "cat": "Educational Programs", "country": "Онлайн", "mode": "Онлайн", "cost": "Бесплатно", "major": "Любая", "deadline": "Без дедлайна", "link": "#", "desc": "Бесплатная подготовка к SAT (демо-данные)."}];
+const CATS=["Scholarships", "Grants", "Internships", "Olympiads", "Competitions", "Projects", "Startups", "Hackathons", "Volunteering", "Summer Schools", "Research Programs", "Conferences", "Educational Programs", "Courses"];
+
+// ---------- helpers ----------
+function engPct(lvl){return {A1:20,A2:35,B1:50,B2:65,C1:80,C2:95}[lvl]||50;}
+function skillGap(p){
+  return [
+    {k:'GPA',v:Math.min(100,Math.round((parseFloat(p.gpa)||0)/4*100))},
+    {k:'Английский',v:engPct(p.english)},
+    {k:'Программирование',v:Math.min(100,(+p.programmingCount||0)*20)},
+    {k:'Математика',v:Math.min(100,+p.mathScore||0)},
+    {k:'Проекты',v:Math.min(100,(+p.projectsCount||0)*25)},
+    {k:'Исследования',v:Math.min(100,(+p.researchCount||0)*50)},
+    {k:'Олимпиады',v:Math.min(100,(+p.olympiadsCount||0)*30)},
+    {k:'Лидерство',v:Math.min(100,(+p.leadershipCount||0)*30)},
+    {k:'Волонтёрство',v:Math.min(100,(+p.volunteeringCount||0)*25)},
+  ];
+}
+function gapAdvice(sg,major){
+  const notes=[];
+  sg.forEach(s=>{
+    if(s.v<40){
+      if(s.k=='Исследования')notes.push('Для выбранной специальности желательно усилить исследовательский опыт — попробуй профильный research-проект.');
+      if(s.k=='Проекты')notes.push('У тебя мало профильных проектов по направлению «'+major+'» — стоит запустить хотя бы один.');
+      if(s.k=='Олимпиады')notes.push('Тебе не хватает олимпиад/конкурсов в профильной области.');
+      if(s.k=='GPA')notes.push('Стоит подтянуть GPA — это важный критерий для большинства университетов.');
+      if(s.k=='Английский')notes.push('Для многих зарубежных университетов нужен более высокий уровень английского.');
+      if(s.k=='Программирование')notes.push('Стоит прокачать программирование — например, через личный проект или курс.');
+      if(s.k=='Математика')notes.push('Математическая база пока слабовата для «'+major+'» — уделяй ей больше времени.');
+      if(s.k=='Лидерство')notes.push('Добавь опыт лидерства — например, руководство школьным проектом или клубом.');
+      if(s.k=='Волонтёрство')notes.push('Волонтёрский опыт усилит портфолио — рассмотри локальные инициативы.');
+    }
+  });
+  return notes.length?notes:['Твой профиль сбалансирован — продолжай развивать текущие направления.'];
+}
+function matchUni(uni,p){
+  const checks=[
+    {label:'GPA',pass:(parseFloat(p.gpa)||0)>=uni.gpaMin,detail:`Твой GPA ${p.gpa||'—'}, нужно от ${uni.gpaMin}`},
+    {label:'Английский',pass:engPct(p.english)>=uni.engPct,detail:`Твой уровень ${p.english}, ориентир — ${uni.english}`},
+    {label:'Профильные проекты',pass:(+p.projectsCount||0)>=1,detail:`У тебя ${p.projectsCount||0} проектов`},
+    {label:'Олимпиады/конкурсы',pass:(+p.olympiadsCount||0)>=1,detail:`У тебя ${p.olympiadsCount||0}`},
+    {label:'Исследовательский опыт',pass:(+p.researchCount||0)>=1,detail:`У тебя ${p.researchCount||0}`},
+  ];
+  const passed=checks.filter(c=>c.pass).length;
+  return {pct:Math.round(passed/checks.length*100),checks};
+}
+function daysLeft(dateStr){const d=new Date(dateStr+'T00:00:00');const t=new Date(todayISO()+'T00:00:00');return Math.round((d-t)/86400000);}
+function deadlineBadge(dl){
+  if(!dl||dl==='Без дедлайна')return '';
+  let iso=dl.length===10&&dl.includes('-')?dl:null;
+  if(!iso)return `<span class="badge b-ok">${dl}</span>`;
+  const d=daysLeft(iso);
+  if(d<0)return `<span class="badge b-late">Просрочено</span>`;
+  if(d===0)return `<span class="badge b-late">Дедлайн сегодня</span>`;
+  if(d===1)return `<span class="badge b-soon">Дедлайн завтра</span>`;
+  if(d<=3)return `<span class="badge b-soon">Осталось ${d} дня</span>`;
+  if(d<=10)return `<span class="badge b-soon">Осталось ${d} дней</span>`;
+  return `<span class="badge b-ok">${iso}</span>`;
+}
+const MAJOR_TRACKS={
+  'Computer Science':['Python и алгоритмы','Работа над pet-проектом на GitHub','Участие в hackathon','Изучение структур данных','Подготовка портфолио проектов'],
+  'Artificial Intelligence':['Python и ML-библиотеки','Kaggle-проект','Изучение нейросетей','Участие в AI-хакатоне','ML-портфолио на GitHub'],
+  'Software Engineering':['Python/Java основы','Совместный pet-проект','Git и code review','Участие в hackathon','Портфолио на GitHub'],
+  'Medicine':['Углублённая биология','Углублённая химия','Волонтёрство в больнице/клинике','Research-проект по медицине','Подготовка к профильным экзаменам'],
+  'Biotechnology':['Биология и химия','Лабораторная практика','Research-проект','Волонтёрство в лаборатории','Подготовка эссе с фокусом на исследования'],
+  'Economics':['Математика и статистика','Изучение основ экономики','Участие в кейс-чемпионате','Финансовое моделирование','Стажировка/проект по экономике'],
+  'Finance':['Математика и статистика','Основы финансов','Кейс-чемпионат по финансам','Стажировка в банке/финтех','Портфолио финансовых моделей'],
+  'Business Administration':['Основы бизнеса','Бизнес-кейс-чемпионат','Мини-стартап проект','Стажировка в компании','Портфолио бизнес-проектов'],
+  'UI/UX Design':['Основы UI/UX','Figma и прототипирование','Дизайн-проект в портфолио','Дизайн-конкурс','Стажировка у дизайнера'],
+  'Graphic Design':['Основы графического дизайна','Работа в Figma/Illustrator','Портфолио работ','Дизайн-конкурс','Стажировка в студии'],
+  'Architecture':['Основы черчения и композиции','Архитектурный софт (AutoCAD/SketchUp)','Проект здания в портфолио','Архитектурный конкурс','Стажировка в бюро'],
+};
+function roadmap(p){
+  const sg=skillGap(p).sort((a,b)=>a.v-b.v);
+  const weak=sg.slice(0,4).map(s=>s.k);
+  const track=MAJOR_TRACKS[p.major]||['Профильные онлайн-курсы','Личный проект по специальности','Участие в профильной олимпиаде/конкурсе','Волонтёрство/практика по теме','Портфолио работ'];
+  const months=[
+    [`Начать усиливать: ${weak[0]}`,'Составить список из 5–7 подходящих университетов',`${track[0]}`],
+    [`Продолжить: ${weak[1]}`,'Начать IELTS/TOEFL подготовку',`${track[1]}`],
+    ['Найти 2–3 подходящие олимпиады/конкурса','Продолжить IELTS/TOEFL','Начать профильный проект'],
+    [`Работать над: ${weak[2]}`,'Завершить черновик профильного проекта','Изучить требования выбранных университетов'],
+    ['Подготовить черновик CV','Собрать первые сертификаты/достижения',`${track[2]}`],
+    [`Усилить: ${weak[3]}`,'Участие в олимпиаде/конкурсе','Обновить портфолио проектов'],
+    ['Сдать пробный IELTS/TOEFL','Начать черновик motivation letter','Найти научного руководителя/ментора (если нужно research)'],
+    ['Доработать motivation letter','Собрать рекомендательные письма','Продолжить исследовательский/профильный проект'],
+    [`${track[3]}`,'Финализировать IELTS/TOEFL','Проверить SAT/ACT требования (если нужны)'],
+    ['Завершить все профильные проекты','Проверить все документы по чек-листу','Подготовить финальные версии эссе'],
+    ['Проверить дедлайны каждого университета','Собрать полный пакет документов','Запросить финальные рекомендательные письма'],
+    ['Подать документы в приоритетные университеты','Подать заявки на стипендии/гранты','Отслеживать статус заявок в Applications'],
+  ];
+  return months.map((tasks,i)=>({m:`Месяц ${i+1}`,tasks}));
+}
+function analyzeEssay(t){
+  const wc=t.trim().split(/\s+/).filter(Boolean).length;
+  const pros=[],cons=[];
+  if(wc>250)pros.push('Хороший объём текста'); else cons.push('Текст короткий — добавь больше конкретных деталей');
+  if(/потому что|так как|because/i.test(t))pros.push('Есть аргументация и объяснение причин'); else cons.push('Не хватает объяснения «почему» — покажи причины своих решений');
+  if(/университет|university|программ/i.test(t))pros.push('Есть упоминание университета/программы'); else cons.push('Не хватает объяснения, почему выбран именно этот университет');
+  if(/карьер|career|будущ/i.test(t))pros.push('Есть связь с будущей карьерой'); else cons.push('Добавь, как это связано с твоими будущими планами');
+  if(/например|for example|в частности/i.test(t))pros.push('Есть конкретные примеры'); else cons.push('Слишком общие формулировки — добавь конкретные примеры и цифры');
+  return {wc,pros,cons};
+}
+function checkDoc(t){
+  const res=[];
+  const has=(re,label)=>res.push({label,ok:re.test(t)});
+  has(/[a-zа-яё]+\s+[a-zа-яё]+/i,'Указано имя (ФИО)');
+  has(/\d{4}/,'Указан год/дата');
+  has(/gpa|балл|оценк/i,'Есть информация об оценках/GPA');
+  has(/@/,'Указан email');
+  has(/школ|university|университет|college/i,'Указано учебное заведение');
+  return res;
+}
+const CHAT_KB=[
+  [/ielts|toefl|английск/i,'IELTS/TOEFL показывают уровень английского. Для большинства зарубежных программ бакалавриата нужен IELTS 6.0–7.0. Совет: начни готовиться минимум за 3–4 месяца, раздел Writing обычно самый слабый у школьников.'],
+  [/sat|act/i,'SAT — стандартизированный тест для поступления в США. Многие университеты сейчас test-optional, уточняй это на странице университета в разделе «Universities».'],
+  [/эссе|essay|мотивацион/i,'Загрузи эссе в разделе «Essay Analyzer» — AI покажет, что уже хорошо получилось, а что стоит усилить, не переписывая текст за тебя.'],
+  [/грант|scholarship|стипенд/i,'Открой раздел «Opportunities» → фильтр Scholarships, или посмотри вкладку «Scholarships» — там подобраны демо-варианты по категориям.'],
+  [/дедлайн|deadline/i,'Добавь важные даты в «Calendar» — система покажет напоминания за 10, 5, 3, 1 день и в день дедлайна.'],
+  [/документ/i,'В разделе «Documents» можно вставить текст документа, и AI проверит, заполнены ли основные обязательные поля.'],
+  [/перевод|translat/i,'Раздел «Translator» — demo-режим показывает интерфейс перевода документов; для реального перевода нужно подключить AI API (см. инструкцию в конце).'],
+  [/skill ?gap|пробел/i,'Skill Gap считается по твоему профилю: GPA, английский, проекты, олимпиады, исследования, лидерство, волонтёрство. Заполни профиль полнее — оценка станет точнее.'],
+];
+function chatReply(msg){
+  for(const [re,ans] of CHAT_KB) if(re.test(msg)) return ans;
+  return 'Хороший вопрос! Это demo-версия AI-ассистента с базовыми правилами. Для полноценных ответов на любые вопросы о поступлении подключи реальный AI API (см. инструкцию внизу страницы настроек).';
+}
+
+// ---------- LIVE AI (Claude, via the artifact "sample" capability) ----------
+let AI=null, AI_STATE='checking'; // 'checking' | 'ready' | 'unavailable'
+(function initAI(){
+  // Standalone: AI идёт через твой сервер /api/claude -> Claude API (ключ хранится на сервере)
+  async function call(messages,json){
+    const r=await fetch('/api/claude',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages,json})});
+    if(!r.ok){const e=new Error('ai_error');e.code=r.status===429?'rate_limited':'error';throw e;}
+    return (await r.json()).text||'';
+  }
+  AI=async function(input,opts){
+    const messages=typeof input==='string'?[{role:'user',content:input}]:input;
+    const text=await call(messages,false);
+    if(opts&&opts.onText)opts.onText({text});
+    return {text};
+  };
+  AI.json=async function(prompt){
+    const t=await call([{role:'user',content:prompt}],true);
+    return JSON.parse(t.replace(/```json|```/g,'').trim());
+  };
+  AI_STATE='ready';
+  if(currentView()==='assistant') renderAssistant();
+})();
+function profileCtx(){
+  const p=state.profile;
+  return `Профиль ученика: специальность "${p.major}", класс/курс "${p.grade||'—'}", GPA ${p.gpa||'—'}, `+
+  `уровень английского ${p.english}, программирование (счётчик) ${p.programmingCount||0}, математика ${p.mathScore||0}/100, страна ${p.country}, интересующие страны "${p.countries||'—'}", `+
+  `олимпиад: ${p.olympiadsCount||0}, проектов: ${p.projectsCount||0}, исследований: ${p.researchCount||0}, `+
+  `лидерский опыт: ${p.leadershipCount||0}, волонтёрство: ${p.volunteeringCount||0}, достижения: "${p.achievements||'—'}".`;
+}
+function aiUnavailableNote(err){
+  const codeMsg={not_granted:'доступ к AI не разрешён в этом окне',rate_limited:'слишком много запросов, попробуй чуть позже',
+    prompt_too_large:'текст слишком длинный',sampling_disabled:'AI недоступен для этого аккаунта'};
+  return `⚠ Живой AI сейчас недоступен (${codeMsg[err&&err.code]||'техническая ошибка'}), показан упрощённый demo-ответ.`;
+}
+
+// ---------- routing/render ----------
+const NAV=[
+  ['dashboard','🏠','Dashboard'],['profile','👤','My Profile'],['portfolio','🗂','My Portfolio'],
+  ['universities','🎓','Universities'],['opportunities','🎯','Opportunities'],['scholarships','💰','Scholarships'],
+  ['internships','💼','Internships'],['competitions','🏆','Competitions'],['olympiads','🥇','Olympiads'],
+  ['projects','🧩','Projects'],['startups','🚀','Startups'],['calendar','📅','Calendar'],
+  ['skillgap','🧠','Skill Gap'],['roadmap','🗺','12-Month Roadmap'],['essay','✍','Essay Analyzer'],
+  ['documents','📄','Documents'],['translator','🌍','Translator'],['assistant','🤖','AI Assistant'],
+  ['applications','📋','My Applications'],['saved','❤','Saved'],['settings','⚙','Settings']
+];
+let sidebarOpen=false, calSelDate=null, calMonth=new Date();
+function nav(h){location.hash='#/'+h; }
+window.addEventListener('hashchange',render);
+function currentView(){return (location.hash.replace('#/','')||'landing');}
+
+function layout(content){
+  const app=document.getElementById('app');
+  if(!state.user){app.innerHTML=content;return;}
+  const view=currentView();
+  app.innerHTML=`
+  <div class="sidebar ${sidebarOpen?'':'hide-mobile'}" id="sb">
+    <div class="brand">🚀 FuturePath</div>
+    ${NAV.map(([h,ic,label])=>`<a class="navlink ${view===h?'active':''}" href="#/${h}">${ic} ${label}</a>`).join('')}
+    <div style="margin-top:16px;padding:0 12px"><button class="btn ghost sm" style="width:100%" onclick="logout()">Выйти</button></div>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <button class="mobile-toggle" onclick="toggleSb()">☰</button>
+      <div class="row" style="margin-left:auto">${notifBell()}</div>
+    </div>
+    ${content}
+  </div>`;
+  const sb=document.getElementById('sb'); if(sb && window.innerWidth<=820) sb.style.display=sidebarOpen?'block':'none';
+}
+function toggleSb(){sidebarOpen=!sidebarOpen;render();}
+function logout(){state.user=null;save();location.hash='#/';render();}
+
+function notifBell(){
+  const items=upcomingEvents().filter(e=>{const d=daysLeft(e.date);return d<=10;});
+  return `<span class="pill">🔔 ${items.length} напоминаний</span>`;
+}
+function upcomingEvents(){return [...state.events].filter(e=>e.status!=='Завершено').sort((a,b)=>a.date.localeCompare(b.date));}
+
+function render(){
+  if(!state.user){renderLanding();return;}
+  const view=currentView();
+  const fns={dashboard:renderDashboard,profile:renderProfile,portfolio:renderPortfolio,universities:renderUniversities,
+    opportunities:()=>renderOpportunities(),scholarships:()=>renderOpportunities('Scholarships'),
+    internships:()=>renderOpportunities('Internships'),competitions:()=>renderOpportunities('Competitions'),
+    olympiads:()=>renderOpportunities('Olympiads'),projects:()=>renderOpportunities('Projects'),
+    startups:()=>renderOpportunities('Startups'),
+    calendar:renderCalendar,skillgap:renderSkillGap,roadmap:renderRoadmap,essay:renderEssay,
+    documents:renderDocuments,translator:renderTranslator,assistant:renderAssistant,
+    applications:renderApplications,saved:renderSaved,settings:renderSettings,landing:renderDashboard};
+  (fns[view]||renderDashboard)();
+}
+
+// ---- LANDING ----
+function renderLanding(){
+  const app=document.getElementById('app');
+  app.innerHTML=`
+  <div class="main" style="max-width:1000px;margin:0 auto">
+    <div class="hero">
+      <div style="font-size:15px;color:var(--primary);font-weight:700" class="glow-text">🚀 FUTUREPATH</div>
+      <h1 style="font-size:clamp(28px,5vw,46px);margin:10px 0" class="glow-text">Твой AI-помощник для поступления и развития портфолио</h1>
+      <p class="muted" style="font-size:16px;max-width:560px;margin:0 auto 22px">Университеты, гранты, олимпиады, проекты и стажировки — в одном месте. AI покажет Skill Gap и составит план на 12 месяцев.</p>
+      <div class="row" style="justify-content:center">
+        <button class="btn" onclick="showAuth('register')">Создать профиль</button>
+        <button class="btn ghost" onclick="tryDemo()">Попробовать AI</button>
+      </div>
+      <div class="row" style="justify-content:center;margin-top:22px">
+        <span class="pill">${UNIS.length} университетов (демо-база)</span>
+        <span class="pill">${OPPS.length} возможностей (демо-база)</span>
+        <span class="pill">${MAJORS.length} специальностей</span>
+      </div>
+    </div>
+    <h2 style="text-align:center;font-size:22px">Что умеет FuturePath</h2>
+    <div class="grid g3" style="margin:20px 0 50px">
+      ${[['🎓','Universities','База университетов Казахстана и мира с демо-критериями поступления'],
+      ['💰','Scholarships & Grants','Стипендии и гранты по категориям, с фильтрами'],
+      ['🚀','Startups & Hackathons','Стартап-акселераторы и хакатоны для школьников и студентов'],
+      ['🗂','My Portfolio','Academic, Projects, Research, Awards и другие разделы портфолио'],
+      ['📅','Personal Calendar','Дедлайны, экзамены и напоминания в одном месте'],
+      ['🧠','Skill Gap','AI показывает сильные и слабые стороны портфолио'],
+      ['🗺','12-Month Roadmap','Персональный план поступления с ветвлением по специальности'],
+      ['✍','Essay Analyzer','Проверка мотивационного эссе без переписывания за тебя'],
+      ['📄','Document Checker','Проверка заполнения документов перед подачей'],
+      ['🌍','AI Translator','Перевод документов на нужный язык'],
+      ['🤖','AI Assistant','Отвечает на вопросы о поступлении с учётом твоего профиля']
+      ].map(([ic,t,d])=>`<div class="card feat"><div style="font-size:26px">${ic}</div><h3 style="margin:8px 0 4px;font-size:16px">${t}</h3><p class="muted" style="font-size:13.5px">${d}</p></div>`).join('')}
+    </div>
+  </div>
+  ${authModal}`;
+}
+let authMode='register';
+function showAuth(m){authMode=m;document.getElementById('authOverlay').style.display='flex';}
+function hideAuth(){document.getElementById('authOverlay').style.display='none';}
+function tryDemo(){
+  state.user={name:'Гость',email:'demo@scholarship.ai'};
+  state.profile.name='Гость';
+  save();location.hash='#/dashboard';render();
+}
+function doAuth(e){
+  e.preventDefault();
+  const name=document.getElementById('authName').value||'Ученик';
+  const email=document.getElementById('authEmail').value||'user@example.com';
+  state.user={name,email};state.profile.name=name;save();
+  location.hash='#/profile';render();
+}
+const authModal=`
+<div id="authOverlay" class="overlay" style="display:none">
+  <div class="modal" style="max-width:380px">
+    <h2 style="margin-top:0">Вход в FuturePath</h2>
+    <p class="muted" style="font-size:13px">Демо-аутентификация — данные хранятся только в твоём браузере.</p>
+    <form onsubmit="doAuth(event)">
+      <label>Имя</label><input id="authName" required>
+      <label>Email</label><input id="authEmail" type="email" required>
+      <label>Пароль</label><input type="password" required>
+      <div class="row" style="margin-top:16px">
+        <button class="btn" type="submit">Продолжить</button>
+        <button class="btn ghost" type="button" onclick="hideAuth()">Отмена</button>
+      </div>
+    </form>
+  </div>
+</div>`;
+
+// ---- DASHBOARD ----
+function renderDashboard(){
+  const p=state.profile, sg=skillGap(p);
+  const avgSkill=Math.round(sg.reduce((a,b)=>a+b.v,0)/sg.length);
+  const upc=upcomingEvents().slice(0,4);
+  layout(`
+  <h2>Привет, ${p.name||'друг'}! 👋</h2>
+  <div class="grid g3" style="margin:16px 0">
+    <div class="card"><div class="muted">GPA</div><h2 style="margin:4px 0">${p.gpa||'—'}</h2></div>
+    <div class="card"><div class="muted">Portfolio Score</div><h2 style="margin:4px 0">${avgSkill}%</h2></div>
+    <div class="card"><div class="muted">Сохранённые вузы</div><h2 style="margin:4px 0">${state.saved.uni.length}</h2></div>
+    <div class="card"><div class="muted">Сохранённые возможности</div><h2 style="margin:4px 0">${state.saved.opp.length}</h2></div>
+    <div class="card"><div class="muted">Ближайшие дедлайны</div><h2 style="margin:4px 0">${upc.length}</h2></div>
+    <div class="card"><div class="muted">Заявки</div><h2 style="margin:4px 0">${state.applications.length}</h2></div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0">Ближайшие дедлайны</h3>
+      ${upc.length?upc.map(e=>`<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--border);padding:6px 0"><span>${e.title}</span>${deadlineBadge(e.date)}</div>`).join(''):'<p class="muted">Пока нет событий — добавь их в Calendar.</p>'}
+      <button class="btn ghost sm" style="margin-top:10px" onclick="nav('calendar')">Открыть календарь</button>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Мой Skill Gap</h3>
+      ${sg.map(s=>`<div style="font-size:13px">${s.k} — ${s.v}%<div class="bar-bg"><div class="bar-fill" style="width:${s.v}%"></div></div></div>`).join('')}
+      <button class="btn ghost sm" style="margin-top:6px" onclick="nav('skillgap')">Подробнее</button>
+    </div>
+  </div>
+  `);
+}
+
+// ---- PROFILE ----
+function renderProfile(){
+  const p=state.profile;
+  const f=(key,label,type='text')=>`<label>${label}</label><input id="pf_${key}" type="${type}" value="${(p[key]??'').toString().replace(/"/g,'&quot;')}">`;
+  layout(`
+  <h2>Мой профиль</h2>
+  <form class="card" onsubmit="saveProfile(event)">
+    <div class="grid g3">
+      ${f('name','Имя')}${f('surname','Фамилия')}${f('age','Возраст','number')}
+      ${f('country','Страна')}${f('city','Город')}${f('school','Школа/университет')}
+      ${f('grade','Класс/курс')}${f('gpa','GPA (0–4.0)')}
+      <div><label>Специальность (поиск)</label><input id="pf_major" list="majorsList" value="${p.major||''}"><datalist id="majorsList">${MAJORS.map(m=>`<option value="${m}">`).join('')}</datalist></div>
+      ${f('countries','Интересующие страны')}
+      ${f('languages','Языки')}
+      <div><label>Уровень английского</label><select id="pf_english">${['A1','A2','B1','B2','C1','C2'].map(l=>`<option ${p.english===l?'selected':''}>${l}</option>`).join('')}</select></div>
+      ${f('github','GitHub/портфолио (ссылка)')}
+    </div>
+    <h3>Быстрые счётчики достижений</h3>
+    <p class="muted" style="font-size:12.5px">Используются для расчёта Skill Gap и match с университетами.</p>
+    <div class="grid g3">
+      ${f('olympiadsCount','Олимпиады (кол-во)','number')}${f('projectsCount','Проекты (кол-во)','number')}
+      ${f('competitionsCount','Конкурсы (кол-во)','number')}${f('volunteeringCount','Волонтёрство (кол-во)','number')}
+      ${f('internshipsCount','Стажировки (кол-во)','number')}${f('certificatesCount','Сертификаты (кол-во)','number')}
+      ${f('researchCount','Исследовательские проекты','number')}${f('leadershipCount','Лидерский опыт (кол-во)','number')}
+      ${f('programmingCount','Программирование — проектов/курсов','number')}${f('mathScore','Математика — самооценка 0-100','number')}
+    </div>
+    <label>Достижения и активности (через запятую)</label>
+    <textarea id="pf_achievements" rows="3">${p.achievements||''}</textarea>
+    <button class="btn" type="submit" style="margin-top:14px">Сохранить профиль</button>
+  </form>`);
+}
+function saveProfile(e){
+  e.preventDefault();
+  ['name','surname','age','country','city','school','grade','gpa','major','countries','languages','english','github','olympiadsCount','projectsCount','competitionsCount','volunteeringCount','internshipsCount','certificatesCount','researchCount','leadershipCount','programmingCount','mathScore','achievements'].forEach(k=>{
+    const el=document.getElementById('pf_'+k); if(el) state.profile[k]=el.value;
+  });
+  save(); nav('dashboard');
+}
+
+// ---- UNIVERSITIES ----
+let uniFilter={q:'',country:'',major:''};
+function renderUniversities(){
+  const list=UNIS.filter(u=> (!uniFilter.q||u.name.toLowerCase().includes(uniFilter.q.toLowerCase()))
+    && (!uniFilter.country||u.country===uniFilter.country)
+    && (!uniFilter.major||u.majors.includes(uniFilter.major)));
+  layout(`
+  <h2>Universities</h2>
+  <p class="notice">Демо-база данных университетов. Требования и дедлайны — примерные, для реального использования подключите официальные источники.</p>
+  <div class="card row" style="margin-bottom:14px">
+    <input placeholder="Найти университет..." style="max-width:220px" oninput="uniFilter.q=this.value;renderUniversities()">
+    <select onchange="uniFilter.country=this.value;renderUniversities()"><option value="">Все страны</option>${[...new Set(UNIS.map(u=>u.country))].map(c=>`<option ${uniFilter.country===c?'selected':''}>${c}</option>`).join('')}</select>
+    <select onchange="uniFilter.major=this.value;renderUniversities()"><option value="">Все специальности</option>${[...new Set(UNIS.flatMap(u=>u.majors))].sort().map(m=>`<option ${uniFilter.major===m?'selected':''}>${m}</option>`).join('')}</select>
+  </div>
+  <div class="grid g3">
+  ${list.map(u=>{
+    const m=matchUni(u,state.profile);
+    const sav=state.saved.uni.includes(u.id);
+    return `<div class="card">
+      <div class="row" style="justify-content:space-between"><b>${u.name}</b><span onclick="toggleSave('uni','${u.id}')" style="cursor:pointer">${sav?'❤️':'♡'}</span></div>
+      <div class="muted">${u.city}, ${u.country}</div>
+      <div class="pill" style="margin:8px 0">Match: ${m.pct}%</div>
+      <button class="btn ghost sm" onclick="openUni('${u.id}')">Подробнее</button>
+    </div>`;
+  }).join('')||'<p class="muted">Ничего не найдено.</p>'}
+  </div>
+  <div id="uniModalHolder"></div>`);
+}
+function toggleSave(type,id){
+  const arr=state.saved[type]; const i=arr.indexOf(id);
+  if(i>=0)arr.splice(i,1); else arr.push(id);
+  save(); render();
+}
+function openUni(id){
+  const u=UNIS.find(x=>x.id===id); const m=matchUni(u,state.profile); const sg=skillGap(state.profile);
+  document.getElementById('uniModalHolder').innerHTML=`
+  <div class="overlay" onclick="if(event.target===this)this.remove()">
+    <div class="modal">
+      <h2 style="margin-top:0">${u.name}</h2>
+      <div class="muted">${u.city}, ${u.country}</div>
+      <p><b>Специальности:</b> ${u.majors.join(', ')}</p>
+      <p><b>Мин. GPA:</b> ${u.gpaMin} · <b>Язык:</b> ${u.english} · <b>Стоимость:</b> ${u.tuition}</p>
+      <p><b>Документы:</b> ${u.docs.join(', ')}</p>
+      <p><b>Дедлайн:</b> ${u.deadline} <span class="muted">(демо)</span> · <a href="${u.site}" target="_blank">Официальный сайт</a></p>
+      <h3>Твой Match — ${m.pct}%</h3>
+      ${m.checks.map(c=>`<div class="check">${c.pass?'✓':'✗'} <span>${c.label}: <span class="muted">${c.detail}</span></span></div>`).join('')}
+      <p class="muted" style="font-size:12.5px">Обозначения условны: «частично соответствует» / «требуется доп. подготовка» — это не гарантия поступления.</p>
+      <h3>Skill Gap для этого направления</h3>
+      ${sg.map(s=>`<div style="font-size:13px">${s.k} — ${s.v}%<div class="bar-bg"><div class="bar-fill" style="width:${s.v}%"></div></div></div>`).join('')}
+      <div class="row" style="margin-top:14px">
+        <button class="btn sm" onclick="addApplication('${u.id}')">Добавить в заявки</button>
+        <button class="btn ghost sm" onclick="this.closest('.overlay').remove()">Закрыть</button>
+      </div>
+    </div>
+  </div>`;
+}
+function addApplication(uniId){
+  const u=UNIS.find(x=>x.id===uniId);
+  state.applications.push({id:uid(),university:u.name,program:u.majors[0],status:'Research',deadline:'',notes:''});
+  save(); alert('Добавлено в «My Applications»'); nav('applications');
+}
+
+// ---- OPPORTUNITIES ----
+let oppFilter={cat:'',country:'',mode:''};
+function renderOpportunities(forceCat){
+  if(forceCat)oppFilter.cat=forceCat;
+  const list=OPPS.filter(o=>(!oppFilter.cat||o.cat===oppFilter.cat)&&(!oppFilter.country||o.country===oppFilter.country)&&(!oppFilter.mode||o.mode===oppFilter.mode));
+  layout(`
+  <h2>${forceCat||'Opportunities'}</h2>
+  <p class="notice">Демо-возможности для примера интерфейса (помечено как Demo Data). Для реальных дедлайнов и требований всегда проверяй официальный сайт организатора.</p>
+  <div class="card row" style="margin-bottom:14px">
+    <select onchange="oppFilter.cat=this.value;render()"><option value="">Все категории</option>${CATS.map(c=>`<option ${oppFilter.cat===c?'selected':''}>${c}</option>`).join('')}</select>
+    <select onchange="oppFilter.country=this.value;render()"><option value="">Все страны</option>${[...new Set(OPPS.map(o=>o.country))].map(c=>`<option ${oppFilter.country===c?'selected':''}>${c}</option>`).join('')}</select>
+    <select onchange="oppFilter.mode=this.value;render()"><option value="">Онлайн/Офлайн</option><option>Онлайн</option><option>Офлайн</option></select>
+  </div>
+  <div class="grid g3">
+  ${list.map(o=>{const sav=state.saved.opp.includes(o.id);return `
+    <div class="card">
+      <div class="row" style="justify-content:space-between"><span class="pill">${o.cat}</span><span onclick="toggleSave('opp','${o.id}')" style="cursor:pointer">${sav?'❤️':'♡'}</span></div>
+      <h3 style="margin:8px 0 2px">${o.title}</h3>
+      <div class="muted" style="font-size:13px">${o.org} · ${o.country} · ${o.mode} · ${o.cost}</div>
+      <p style="font-size:13.5px">${o.desc}</p>
+      <div style="margin:6px 0">${deadlineBadge(o.deadline)}</div>
+      <button class="btn ghost sm" onclick="openOpp('${o.id}')">Подробнее</button>
+    </div>`;}).join('')||'<p class="muted">Ничего не найдено.</p>'}
+  </div>
+  <div id="oppModalHolder"></div>`);
+}
+// category-based defaults (demo) for team/skills/requirements/rewards/stages, per opportunity where not overridden
+const CAT_META={
+  Scholarships:{team:'Individual',skills:['Academic writing','Time management'],requires:['Аттестат/транскрипт','Motivation Letter','Рекомендательные письма'],rewards:['Покрытие/частичное покрытие обучения'],stages:['Регистрация','Проверка документов','Результат']},
+  Grants:{team:'Individual',skills:['Research skills','Проектное мышление'],requires:['Проектное предложение','CV'],rewards:['Финансирование проекта'],stages:['Регистрация','Оценка заявки','Результат']},
+  Internships:{team:'Individual',skills:['Профильные технические навыки','Коммуникация'],requires:['CV','Motivation Letter'],rewards:['Опыт работы','Networking','Возможен оффер'],stages:['Регистрация','Собеседование','Оффер']},
+  Olympiads:{team:'Individual',skills:['Профильные предметные знания'],requires:['Регистрация от школы/самостоятельно'],rewards:['Сертификат','Диплом призёра','Бонус при поступлении'],stages:['Отборочный тур','Региональный этап','Финал']},
+  Competitions:{team:'Team required',teamSize:'2–5',skills:['Командная работа','Профильные навыки','Презентация'],requires:['Регистрация команды','Иногда — эссе/заявка'],rewards:['Сертификат','Призы','Networking'],stages:['Регистрация','Квалификация','Финал','Презентация']},
+  Projects:{team:'Team required',teamSize:'2–5',skills:['Профильные навыки','Проектное мышление'],requires:['Заявка','Иногда — CV'],rewards:['Сертификат','Портфолио-кейс','Менторство'],stages:['Заявка','Отбор','Реализация проекта']},
+  Startups:{team:'Team required',teamSize:'2–4',skills:['Предпринимательское мышление','Презентация','Профильные навыки'],requires:['Питч-дек','Команда'],rewards:['Менторство','Инвестиции/грант','Networking'],stages:['Заявка','Отбор','Акселерация','Демо-день']},
+  Hackathons:{team:'Team required',teamSize:'2–5',skills:['Программирование','Командная работа','Презентация'],requires:['Регистрация команды'],rewards:['Призы','Сертификат','Networking'],stages:['Регистрация','Хакатон','Питчинг','Итоги']},
+  Volunteering:{team:'Individual',skills:['Коммуникация','Ответственность'],requires:['Заявка'],rewards:['Сертификат волонтёра','Опыт'],stages:['Регистрация','Участие']},
+  'Summer Schools':{team:'Individual',skills:['Профильные базовые знания'],requires:['Заявка','Иногда — эссе'],rewards:['Сертификат','Networking','Профильные знания'],stages:['Заявка','Отбор','Программа']},
+  'Research Programs':{team:'Individual',skills:['Research skills','Аналитическое мышление'],requires:['CV','Research interest statement'],rewards:['Сертификат','Публикация/отчёт','Менторство'],stages:['Заявка','Отбор','Исследование','Презентация результатов']},
+  Conferences:{team:'Individual',skills:['Коммуникация','Публичные выступления'],requires:['Регистрация'],rewards:['Сертификат','Networking'],stages:['Регистрация','Участие']},
+  'Educational Programs':{team:'Individual',skills:['Самостоятельное обучение'],requires:['Регистрация'],rewards:['Сертификат','Новые знания'],stages:['Регистрация','Обучение']},
+  Courses:{team:'Individual',skills:['Самостоятельное обучение'],requires:['Регистрация'],rewards:['Сертификат об окончании'],stages:['Регистрация','Прохождение курса']},
+};
+function oppApps(){try{return JSON.parse(localStorage.getItem('fm_oppapps'))||[];}catch(e){return [];}}
+function applyOpp(id){
+  const o=OPPS.find(x=>x.id===id);const old=oppApps().find(a=>a.oppId===id);const p=state.profile;
+  let h=document.getElementById('applyHolder');if(!h){h=document.createElement('div');h.id='applyHolder';document.body.appendChild(h);}
+  h.innerHTML=`<div class="overlay" style="z-index:60" onclick="if(event.target===this)this.remove()"><div class="modal">
+    <h2 style="margin-top:0">Заявка: ${o.title}</h2><p class="muted">${o.org} · ${o.country} · ${o.mode} · дедлайн ${o.deadline}</p>
+    ${old?`<div class="notice">✓ Ты уже подал(а) заявку ${old.date}. Можно отправить обновлённую.</div>`:''}
+    <form onsubmit="submitOpp(event,'${id}')">
+      <label>Имя и фамилия</label><input id="ap_name" required value="${((p.name||'')+' '+(p.surname||'')).trim()}">
+      <label>Email</label><input id="ap_email" type="email" required value="${(state.user&&state.user.email)||''}">
+      <label>Телефон / Telegram</label><input id="ap_phone">
+      <label>Почему ты хочешь участвовать?</label><textarea id="ap_text" rows="5" required>${old?old.text:''}</textarea>
+      <div class="check"><input type="checkbox" required style="width:auto"> Подтверждаю, что данные верны</div>
+      <div class="row" style="margin-top:12px"><button class="btn sm" type="submit">Отправить заявку</button><button type="button" class="btn ghost sm" onclick="this.closest('.overlay').remove()">Отмена</button></div>
+    </form></div></div>`;
+}
+function submitOpp(e,id){
+  e.preventDefault();const l=oppApps().filter(a=>a.oppId!==id);
+  l.push({id:uid(),oppId:id,name:ap_name.value,email:ap_email.value,phone:ap_phone.value,text:ap_text.value,date:todayISO(),status:'Отправлена'});
+  try{localStorage.setItem('fm_oppapps',JSON.stringify(l));}catch(x){}
+  document.getElementById('applyHolder').innerHTML='';alert('Заявка отправлена!');openOpp(id);
+}
+function openOpp(id){
+  if(!document.getElementById('oppModalHolder')){const h=document.createElement('div');h.id='oppModalHolder';document.body.appendChild(h);}
+  const o=OPPS.find(x=>x.id===id); const meta=CAT_META[o.cat]||{team:'Individual',skills:[],requires:[],rewards:[],stages:[]};
+  const sav=state.saved.opp.includes(o.id);
+  document.getElementById('oppModalHolder').innerHTML=`
+  <div class="overlay" onclick="if(event.target===this)this.remove()">
+    <div class="modal">
+      <div class="row" style="justify-content:space-between"><span class="pill">${o.cat}</span><span onclick="toggleSave('opp','${o.id}');openOpp('${o.id}')" style="cursor:pointer;font-size:20px">${sav?'❤️':'♡'}</span></div>
+      <h2>${o.title}</h2>
+      <p class="muted">${o.org} · ${o.country} · ${o.mode} · ${o.cost}</p>
+      <p>${o.desc}</p>
+      <div style="margin:8px 0">${deadlineBadge(o.deadline)}</div>
+      <h3>Участие</h3>
+      <p style="font-size:14px">Специальность: <b>${o.major}</b> · Формат: <b>${o.mode}</b> · Стоимость участия: <b>${o.cost}</b></p>
+      <h3>Команда</h3>
+      <p style="font-size:14px">${meta.team}${meta.teamSize?` · Team size: ${meta.teamSize}`:''}</p>
+      <h3>Навыки</h3>
+      <div class="row">${meta.skills.map(s=>`<span class="pill">${s}</span>`).join('')}</div>
+      <h3>Что необходимо</h3>
+      ${meta.requires.map(r=>`<div class="check">• ${r}</div>`).join('')}
+      <h3>Что получит участник</h3>
+      ${meta.rewards.map(r=>`<div class="check">✓ ${r}</div>`).join('')}
+      <h3>Как проходит</h3>
+      <p style="font-size:14px">${meta.stages.join(' → ')}</p>
+      <div class="row" style="margin-top:14px">
+        <button class="btn sm" onclick="addOppToCalendar('${o.id}')">+ Add to Calendar</button>
+        <button class="btn ghost sm" onclick="applyOpp('${o.id}')">${oppApps().some(a=>a.oppId===o.id)?'✓ Заявка подана':'Apply'}</button>
+        <a class="btn ghost sm" href="${o.link}" target="_blank" style="display:inline-block">Official Website</a>
+        <button class="btn ghost sm" onclick="this.closest('.overlay').remove()">Закрыть</button>
+      </div>
+    </div>
+  </div>`;
+}
+function addOppToCalendar(id){
+  const o=OPPS.find(x=>x.id===id);
+  const date=(o.deadline.length===10&&o.deadline.includes('-'))?o.deadline:todayISO();
+  if(state.events.some(e=>e.oppId===id)){alert('Уже в календаре');return;}
+  state.events.push({id:uid(),oppId:id,title:o.title,date,time:'',desc:o.desc,category:o.cat,link:o.link,priority:'Средний',status:'Запланировано'});
+  save(); alert('Добавлено в календарь!');
+}
+
+// ---- CALENDAR ----
+function calEvents(iso){
+  const r=state.events.filter(e=>e.date===iso);
+  state.saved.opp.forEach(id=>{const o=OPPS.find(x=>x.id===id);if(o&&o.deadline===iso&&!r.some(e=>e.oppId===id))r.push({id:'v'+id,title:o.title,category:o.cat,oppId:id,virtual:true,date:iso});});
+  return r;
+}
+function renderCalendar(){
+  const y=calMonth.getFullYear(),m=calMonth.getMonth();
+  const first=new Date(y,m,1); const startDow=(first.getDay()+6)%7; const days=new Date(y,m+1,0).getDate();
+  let cells='';
+  for(let i=0;i<startDow;i++)cells+='<div></div>';
+  for(let d=1;d<=days;d++){
+    const iso=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const evs=calEvents(iso);
+    const isToday=iso===todayISO(); const isSel=iso===calSelDate;
+    cells+=`<div class="cal-cell ${isToday?'today':''} ${isSel?'sel':''}" onclick="calSelDate='${iso}';render()"><b>${d}</b>${evs.slice(0,2).map(e=>`<div class="chip" title="${e.title}" onclick="event.stopPropagation();calSelDate='${iso}';${e.oppId?`openOpp('${e.oppId}')`:'render()'}">${e.title}</div>`).join('')}${evs.length>2?`<div class="more">+${evs.length-2} ещё</div>`:''}</div>`;
+  }
+  const dayEvents=state.events.filter(e=>e.date===calSelDate);
+  layout(`
+  <h2>Calendar</h2>
+  <div class="grid g2">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <button class="btn ghost sm" onclick="calMonth=new Date(${y},${m-1},1);render()">←</button>
+        <b>${calMonth.toLocaleString('ru',{month:'long',year:'numeric'})}</b>
+        <button class="btn ghost sm" onclick="calMonth=new Date(${y},${m+1},1);render()">→</button>
+      </div>
+      <div class="cal-grid" style="margin-top:10px">${['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map(d=>`<div class="muted" style="text-align:center;font-size:11px">${d}</div>`).join('')}${cells}</div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">${calSelDate?calSelDate:'Выбери день'}</h3>
+      ${calSelDate?`
+      ${dayEvents.map(e=>`<div style="border-bottom:1px solid var(--border);padding:6px 0">
+        <b>${e.title}</b> <span class="pill">${e.category}</span><br>
+        <span class="muted" style="font-size:12.5px">${e.desc||''}</span><br>
+        ${e.oppId?`<button class="btn sm" onclick="openOpp('${e.oppId}')">Открыть / Apply</button><br>`:''}
+        <select onchange="updateEventStatus('${e.id}',this.value)" style="margin-top:4px;width:auto;display:inline-block">
+          ${['Запланировано','В процессе','Завершено','Просрочено'].map(s=>`<option ${e.status===s?'selected':''}>${s}</option>`).join('')}
+        </select>
+        <button class="btn ghost sm" onclick="delEvent('${e.id}')">Удалить</button>
+      </div>`).join('')}
+      ${calEvents(calSelDate).filter(e=>e.virtual).map(e=>`<div style="border-bottom:1px solid var(--border);padding:6px 0"><b>${e.title}</b> <span class="pill">${e.category}</span> <span class="muted">дедлайн (избранное)</span><br><button class="btn sm" style="margin-top:4px" onclick="openOpp('${e.oppId}')">Открыть / Apply</button></div>`).join('')}
+      <form onsubmit="addEvent(event)" style="margin-top:10px">
+        <label>Название</label><input id="ev_title" required>
+        <label>Категория</label><select id="ev_cat">${['Дедлайн университета','Олимпиада','Экзамен','IELTS/TOEFL','SAT','Стажировка','Собеседование','Другое'].map(c=>`<option>${c}</option>`).join('')}</select>
+        <label>Время</label><input id="ev_time" type="time">
+        <label>Приоритет</label><select id="ev_pri"><option>Высокий</option><option selected>Средний</option><option>Низкий</option></select>
+        <label>Описание</label><textarea id="ev_desc" rows="2"></textarea>
+        <button class="btn sm" style="margin-top:8px" type="submit">Добавить событие</button>
+      </form>`:'<p class="muted">Выбери день в календаре, чтобы добавить событие.</p>'}
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Ближайшие дедлайны</h3>
+    ${upcomingEvents().map(e=>`<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--border);padding:6px 0"><span>${e.title} <span class="muted">(${e.date})</span></span>${deadlineBadge(e.date)}</div>`).join('')||'<p class="muted">Событий пока нет.</p>'}
+  </div>`);
+}
+function addEvent(e){
+  e.preventDefault();
+  state.events.push({id:uid(),title:document.getElementById('ev_title').value,date:calSelDate,
+    time:document.getElementById('ev_time').value,category:document.getElementById('ev_cat').value,
+    priority:document.getElementById('ev_pri').value,desc:document.getElementById('ev_desc').value,status:'Запланировано'});
+  save(); render();
+}
+function delEvent(id){state.events=state.events.filter(e=>e.id!==id);save();render();}
+function updateEventStatus(id,val){const e=state.events.find(x=>x.id===id);if(e)e.status=val;save();render();}
+
+// ---- SKILL GAP ----
+function renderSkillGap(){
+  const sg=skillGap(state.profile);
+  layout(`
+  <h2>Skill Gap</h2>
+  <p class="muted">Оценка пересчитывается автоматически на основе твоего профиля.</p>
+  <div class="card">
+    ${sg.map(s=>`<div style="margin-bottom:10px">${s.k} — ${s.v}%<div class="bar-bg"><div class="bar-fill" style="width:${s.v}%"></div></div></div>`).join('')}
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Рекомендации AI</h3>
+    ${gapAdvice(sg,state.profile.major).map(n=>`<div class="notice">${n}</div>`).join('')}
+  </div>`);
+}
+
+// ---- ROADMAP ----
+function renderRoadmap(){
+  const rm=roadmap(state.profile);
+  layout(`
+  <h2>12-Month Roadmap</h2>
+  <p class="muted">Персональный план на 12 месяцев — учитывает твою специальность «${state.profile.major}» и слабые зоны Skill Gap.</p>
+  <div class="grid g2">
+  ${rm.map(r=>`<div class="card"><h3 style="margin-top:0">${r.m}</h3>${r.tasks.map(t=>`<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--border);padding:5px 0"><span style="font-size:14px">• ${t}</span><button class="btn ghost sm" onclick="quickAddTask('${t.replace(/'/g,"\\'")}')">+ В календарь</button></div>`).join('')}</div>`).join('')}
+  </div>`);
+}
+function quickAddTask(title){
+  const d=new Date(); d.setDate(d.getDate()+14);
+  state.events.push({id:uid(),title,date:d.toISOString().slice(0,10),category:'Roadmap',priority:'Средний',desc:'',status:'Запланировано'});
+  save(); alert('Добавлено в календарь (через 14 дней)');
+}
+
+// ---- ESSAY ----
+function renderEssay(){
+  layout(`
+  <h2>Essay Analyzer</h2>
+  <p class="notice">${AI_STATE==='ready'?'🟢 Живой AI-анализ через Claude.':'🟡 Упрощённый demo-анализ (правила по ключевым словам).'} AI не переписывает твой текст автоматически — только показывает сильные и слабые стороны.</p>
+  <div class="card">
+    <label>Вставь текст эссе</label>
+    <textarea id="essayTxt" rows="8"></textarea>
+    <button class="btn" style="margin-top:10px" onclick="runEssay()">Анализировать</button>
+  </div>
+  <div id="essayResult"></div>`);
+}
+async function runEssay(){
+  const t=document.getElementById('essayTxt').value;
+  const wc=t.trim().split(/\s+/).filter(Boolean).length;
+  const box=document.getElementById('essayResult');
+  box.innerHTML=`<div class="card" style="margin-top:14px"><p class="muted">Анализирую...</p></div>`;
+  let pros,cons,note='';
+  if(AI){
+    try{
+      const data=await AI.json(`Ты помогаешь абитуриенту с мотивационным эссе для специальности "${state.profile.major}". Проанализируй текст ниже. Верни ТОЛЬКО JSON {"pros":["..."],"cons":["..."]} на русском, без markdown. pros — 3-5 конкретных сильных сторон текста, cons — 3-5 конкретных, дружелюбных советов по улучшению (без переписывания текста).\n\nТекст:\n"""${t}"""`);
+      pros=data.pros||[]; cons=data.cons||[];
+    }catch(err){ const r=analyzeEssay(t); pros=r.pros; cons=r.cons; note=aiUnavailableNote(err); }
+  } else { const r=analyzeEssay(t); pros=r.pros; cons=r.cons; }
+  box.innerHTML=`
+  <div class="card" style="margin-top:14px">
+    ${note?`<p class="notice">${note}</p>`:''}
+    <p class="muted">Слов: ${wc}</p>
+    <h3>Что хорошо</h3>${pros.map(p=>`<div class="check">✓ ${p}</div>`).join('')||'<p class="muted">Пока не найдено.</p>'}
+    <h3>Что улучшить</h3>${cons.map(c=>`<div class="check">⚠ ${c}</div>`).join('')||'<p class="muted">Отлично, серьёзных замечаний нет!</p>'}
+  </div>`;
+}
+
+// ---- DOCUMENTS ----
+function renderDocuments(){
+  layout(`
+  <h2>Document Checker</h2>
+  <p class="notice">${AI_STATE==='ready'?'🟢 Живой AI-анализ через Claude.':'🟡 Упрощённый demo-анализ.'} AI не подтверждает подлинность документа — только проверяет заполнение основных полей.</p>
+  <div class="card">
+    <label>Вставь текст документа (CV, транскрипт и т.д.)</label>
+    <textarea id="docTxt" rows="8"></textarea>
+    <button class="btn" style="margin-top:10px" onclick="runDoc()">Проверить</button>
+  </div>
+  <div id="docResult"></div>`);
+}
+async function runDoc(){
+  const t=document.getElementById('docTxt').value;
+  const box=document.getElementById('docResult');
+  box.innerHTML=`<div class="card" style="margin-top:14px"><p class="muted">Проверяю...</p></div>`;
+  let items,note='';
+  if(AI){
+    try{
+      const data=await AI.json(`Проверь текст документа абитуриента (CV/транскрипт/анкета) на заполненность обязательных полей: ФИО, дата рождения, email/контакты, учебное заведение, оценки/GPA, специальность. Верни ТОЛЬКО JSON {"items":[{"label":"...","ok":true|false,"note":"..."}]} на русском, без markdown. Не утверждай подлинность документа — только заполнение полей.\n\nТекст:\n"""${t}"""`);
+      items=data.items||[];
+    }catch(err){ items=checkDoc(t).map(r=>({label:r.label,ok:r.ok,note:''})); note=aiUnavailableNote(err); }
+  } else { items=checkDoc(t).map(r=>({label:r.label,ok:r.ok,note:''})); }
+  box.innerHTML=`<div class="card" style="margin-top:14px">
+  ${note?`<p class="notice">${note}</p>`:''}
+  ${items.map(r=>`<div class="check">${r.ok?'✓ Проверка заполнения пройдена':'⚠ Найдена возможная ошибка'}: ${r.label}${r.note?` — <span class="muted">${r.note}</span>`:''}</div>`).join('')}
+  <p class="muted" style="margin-top:8px">Требуется ручная проверка перед подачей документа — подлинность AI не подтверждает.</p>
+  </div>`;
+}
+
+// ---- TRANSLATOR ----
+function renderTranslator(){
+  const langs=['English','Русский','Қазақша','Français','Deutsch','Español','Italiano','中文','日本語','한국어','العربية','Türkçe','Português'];
+  layout(`
+  <h2>AI Translator</h2>
+  <p class="notice">${AI_STATE==='ready'?'🟢 Реальный перевод через Claude.':'🟡 Живой AI недоступен — показан demo-режим без перевода.'}</p>
+  <div class="card">
+    <div class="row"><div style="flex:1"><label>Откуда</label><select id="trFrom">${langs.map(l=>`<option>${l}</option>`).join('')}</select></div>
+    <div style="flex:1"><label>Куда</label><select id="trTo">${langs.map((l,i)=>`<option ${i===0?'selected':''}>${l}</option>`).join('')}</select></div></div>
+    <label>Текст документа</label><textarea id="trTxt" rows="6"></textarea>
+    <button class="btn" style="margin-top:10px" onclick="runTranslate()">Перевести (demo)</button>
+  </div>
+  <div id="trResult"></div>`);
+}
+async function runTranslate(){
+  const from=document.getElementById('trFrom').value, to=document.getElementById('trTo').value, txt=document.getElementById('trTxt').value;
+  const box=document.getElementById('trResult');
+  if(!txt.trim()){box.innerHTML='<p class="muted">Вставь текст для перевода.</p>';return;}
+  if(!AI){
+    box.innerHTML=`<div class="card" style="margin-top:14px"><p class="notice">Живой AI недоступен в этом окне — реальный перевод сейчас невозможен.</p></div>`;
+    return;
+  }
+  box.innerHTML=`<div class="card" style="margin-top:14px"><p class="muted">Перевожу ${from} → ${to}...</p><p id="trOut" style="white-space:pre-wrap"></p></div>`;
+  const out=document.getElementById('trOut');
+  try{
+    const {text}=await AI(`Переведи следующий документ с языка ${from} на язык ${to}. Сохрани структуру, заголовки, даты и форматирование где возможно. Верни только перевод, без пояснений.\n\n${txt}`,
+      {cache:false,onText:({text})=>{out.textContent=text;}});
+    box.innerHTML=`<div class="card" style="margin-top:14px"><p style="white-space:pre-wrap">${text}</p>
+    <button class="btn ghost sm" id="trDownloadBtn">Download translated document</button></div>`;
+    document.getElementById('trDownloadBtn').onclick=()=>downloadText('translation_'+to+'.txt', text);
+  }catch(err){
+    box.innerHTML=`<div class="card" style="margin-top:14px"><p class="notice">${aiUnavailableNote(err)}</p></div>`;
+  }
+}
+function downloadText(name,txt){
+  const blob=new Blob([txt],{type:'text/plain'}); const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download=name; a.click();
+}
+
+// ---- AI ASSISTANT ----
+function renderAssistant(){
+  layout(`
+  <h2>AI Assistant</h2>
+  <p class="notice">${AI_STATE==='ready'?'🟢 Подключён живой Claude — отвечает на любые вопросы об учёбе и поступлении.':AI_STATE==='checking'?'Проверяю доступность AI...':'🟡 Живой AI сейчас недоступен в этом окне — работает упрощённый demo-режим по ключевым словам.'}</p>
+  <div class="card">
+    <div class="chatbox" id="chatbox">${state.chat.map(m=>`<div class="msg ${m.role}">${m.text}</div>`).join('')||'<p class="muted">Задай вопрос об университетах, грантах, IELTS, эссе...</p>'}</div>
+    <form class="row" style="margin-top:10px" onsubmit="sendChat(event)">
+      <input id="chatInput" placeholder="Напиши сообщение..." style="flex:1">
+      <button class="btn sm" type="submit">Отправить</button>
+    </form>
+  </div>`);
+  const cb=document.getElementById('chatbox'); if(cb)cb.scrollTop=cb.scrollHeight;
+}
+async function sendChat(e){
+  e.preventDefault();
+  const inp=document.getElementById('chatInput'); const msg=inp.value.trim(); if(!msg)return;
+  state.chat.push({role:'user',text:msg}); inp.value=''; save(); renderAssistant();
+  const aiMsg={role:'ai',text:'Думаю...'}; state.chat.push(aiMsg); renderAssistant();
+  if(AI){
+    try{
+      const instruction={role:'user',content:'Ты — AI-ассистент FuturePath, помогаешь школьникам и студентам с поступлением, грантами, олимпиадами, эссе и документами. Отвечай по-русски, просто и понятно, без сложных терминов, конкретно и по делу. '+profileCtx()};
+      const history=state.chat.slice(0,-1).filter(m=>m.text!=='Думаю...').map(m=>({role:m.role==='ai'?'assistant':'user',content:m.text}));
+      const turns=[instruction,...history];
+      const {text}=await AI(turns,{cache:false,modelTier:'default',onText:({text})=>{aiMsg.text=text;renderAssistant();}});
+      aiMsg.text=text;
+    }catch(err){ aiMsg.text=aiUnavailableNote(err)+'\n\n'+chatReply(msg); }
+  } else {
+    aiMsg.text=chatReply(msg);
+  }
+  save(); renderAssistant();
+}
+
+// ---- APPLICATIONS ----
+function renderApplications(){
+  const statuses=['Research','Preparing','Documents Ready','Submitted','Interview','Accepted','Rejected'];
+  layout(`
+  <h2>My Applications</h2>
+  <div class="card">
+    <table><thead><tr><th>Университет</th><th>Программа</th><th>Дедлайн</th><th>Статус</th><th></th></tr></thead>
+    <tbody>${state.applications.map(a=>`<tr>
+      <td>${a.university}</td><td>${a.program}</td>
+      <td><input type="date" value="${a.deadline||''}" onchange="updateApp('${a.id}','deadline',this.value)" style="padding:4px"></td>
+      <td><select onchange="updateApp('${a.id}','status',this.value)">${statuses.map(s=>`<option ${a.status===s?'selected':''}>${s}</option>`).join('')}</select></td>
+      <td><button class="btn ghost sm" onclick="delApp('${a.id}')">✕</button></td>
+    </tr>`).join('')||'<tr><td class="muted" colspan="5">Пока нет заявок — добавь их со страницы университета.</td></tr>'}</tbody></table>
+  </div>`);
+}
+function updateApp(id,field,val){const a=state.applications.find(x=>x.id===id);if(a)a[field]=val;save();}
+function delApp(id){state.applications=state.applications.filter(a=>a.id!==id);save();render();}
+
+// ---- PORTFOLIO ----
+const PORTFOLIO_CATS=['Academic','Projects','Olympiads','Competitions','Internships','Volunteering','Leadership','Research','Certificates','Awards'];
+function renderPortfolio(){
+  layout(`
+  <h2>My Portfolio</h2>
+  <p class="muted">Добавляй сюда достижения вручную — они не влияют на Skill Gap автоматически (для этого используются счётчики в профиле), но формируют твоё резюме.</p>
+  <div class="grid g2">
+  ${PORTFOLIO_CATS.map(cat=>`
+    <div class="card">
+      <h3 style="margin-top:0">${cat}</h3>
+      ${(state.portfolio[cat]||[]).map((item,i)=>`<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--border);padding:5px 0"><span style="font-size:13.5px">• ${item}</span><button class="btn ghost sm" onclick="delPortfolio('${cat}',${i})">✕</button></div>`).join('')||'<p class="muted" style="font-size:12.5px">Пока пусто.</p>'}
+      <form class="row" style="margin-top:8px" onsubmit="addPortfolio(event,'${cat}')">
+        <input id="pfi_${cat}" placeholder="Добавить..." style="flex:1">
+        <button class="btn sm" type="submit">+</button>
+      </form>
+    </div>`).join('')}
+  </div>`);
+}
+function addPortfolio(e,cat){
+  e.preventDefault();
+  const inp=document.getElementById('pfi_'+cat); const v=inp.value.trim(); if(!v)return;
+  if(!state.portfolio[cat])state.portfolio[cat]=[];
+  state.portfolio[cat].push(v); save(); renderPortfolio();
+}
+function delPortfolio(cat,i){state.portfolio[cat].splice(i,1);save();renderPortfolio();}
+
+// ---- SAVED ----
+function renderSaved(){
+  const savedUnis=UNIS.filter(u=>state.saved.uni.includes(u.id));
+  const savedOpps=OPPS.filter(o=>state.saved.opp.includes(o.id));
+  layout(`
+  <h2>Saved</h2>
+  <h3>Университеты</h3>
+  <div class="grid g3">${savedUnis.map(u=>`<div class="card"><b>${u.name}</b><div class="muted">${u.city}, ${u.country}</div><button class="btn ghost sm" style="margin-top:8px" onclick="openUni('${u.id}')">Открыть</button></div>`).join('')||'<p class="muted">Пока нет сохранённых университетов.</p>'}</div>
+  <h3 style="margin-top:20px">Возможности</h3>
+  <div class="grid g3">${savedOpps.map(o=>`<div class="card"><span class="pill">${o.cat}</span><h3 style="margin:8px 0 2px">${o.title}</h3><div class="muted" style="font-size:13px">${o.org}</div><button class="btn ghost sm" style="margin-top:8px" onclick="openOpp('${o.id}')">Открыть</button></div>`).join('')||'<p class="muted">Пока нет сохранённых возможностей.</p>'}</div>
+  <div id="oppModalHolder"></div>`);
+}
+
+function renderSettings(){
+  layout(`
+  <h2>Settings</h2>
+  <div class="card">
+    <h3 style="margin-top:0">Аккаунт</h3>
+    <p>${state.profile.name} · ${state.user.email}</p>
+    <button class="btn ghost sm" onclick="if(confirm('Удалить все данные?')){localStorage.clear();location.reload();}">Очистить все данные</button>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Статус AI</h3>
+    <p>${AI_STATE==='ready'?'🟢 Живой Claude подключён прямо в этой странице — AI Assistant, Essay Analyzer, Document Checker и Translator отвечают по-настоящему, без демо-заглушек.':'🟡 Живой AI сейчас недоступен в этом окне (например, открыт вне claude.ai) — работают упрощённые demo-ответы.'}</p>
+    <p class="muted" style="font-size:13.5px">Это работает через встроенную возможность артефактов Claude «спросить AI» — отдельный ключ API и сервер не нужны, пока сайт открыт как артефакт Claude.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Если нужен независимый сайт вне Claude</h3>
+    <p class="muted" style="font-size:13.5px">Чтобы AI работал и на своём домене/хостинге вне claude.ai, нужен отдельный backend с ключом <code>OPENAI_API_KEY</code> или <code>ANTHROPIC_API_KEY</code> в <code>.env</code> (никогда во frontend) — см. план миграции на Next.js + Supabase, который обсуждали ранее в чате.</p>
+  </div>`);
+}
+
+// init
+render();
+if(state.user)document.addEventListener('click',()=>{});
+</script>
+</body>
+</html>
